@@ -1,0 +1,58 @@
+.storiesColumn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.columnTitle {
+  border-bottom: 2px solid #1a1a1a;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.storiesList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.storyCard {
+  display: flex;
+  background-color: #f6f5f0;
+  padding: 15px;
+  border-radius: 4px;
+  gap: 15px;
+  flex-direction: row-reverse;
+}
+
+.storyThumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.storyDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.storyTitle {
+  margin: 0;
+  font-size: 16px;
+}
+
+.storyDesc {
+  margin: 5px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.storyDate {
+  font-size: 11px;
+  color: #888;
+}

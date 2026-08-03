@@ -1,0 +1,33 @@
+.app-container {
+  max-width: 1200px; /* بازگشت به عرض استاندارد قبلی */
+  margin: 0 auto;
+  padding: 20px; /* بازگشت به پدینگ استاندارد قبلی */
+  border: 2px dashed red; /* کادر قرمز آموزشی */
+}
+
+/* طراحی شبکه سه‌ستونی بدنه اصلی */
+.main-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 0 100px; /* اعمال فاصله ۲۰۰ پیکسلی فقط از چپ و راستِ این بخش */
+}
+
+/* طراحی بصری فوتر سایت */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #dcdbd3;
+  font-size: 13px;
+  color: #666;
+}
+
+.footer-socials a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #666;
+}

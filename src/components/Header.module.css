@@ -1,0 +1,20 @@
+.siteHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f6f5f0;
+  padding: 15px 30px;
+  border-bottom: 1px solid #dcdbd3;
+}
+
+.headerBrand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.headerNav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #4a4a4a;
+  font-weight: 500;
+}
