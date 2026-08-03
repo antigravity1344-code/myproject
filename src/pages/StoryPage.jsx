@@ -1,11 +1,10 @@
-// import { useParams, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom'; // بررسی کنید که useParams حتماً اینجا باشد
 
 function StoryPage() {
   const { id } = useParams();
 
   return (
     <div style={{ padding: '40px 0', maxWidth: '800px', margin: '0 auto' }}>
-      {/* دکمه‌ی بازگشت به صفحه اصلی */}
       <Link to="/" style={{ textDecoration: 'none', color: '#8b7d6b', fontWeight: 'bold' }}>
         ← بازگشت به صفحه اصلی
       </Link>
