@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './DailyNotes.module.css';
-import notesData from '../data/notes.json'; // وارد کردن داده‌های یادداشت‌ها از دیتابیسِ محلی
+import notesData from '../data/notes.json';
 
 function DailyNotes() {
   return (
@@ -11,6 +11,7 @@ function DailyNotes() {
           <li key={note.id} className={styles.noteItem}>
             <span className={styles.noteArrow}>›</span>
             <div className={styles.noteContent}>
+              {/* لینک مستقیم با تگ Link به صفحه اختصاصی هر یادداشت */}
               <Link to={`/note/${note.id}`} className={styles.noteLink}>
                 {note.title}
               </Link>

@@ -5,14 +5,14 @@ import Stories from '../components/Stories.jsx';
 
 function Home() {
   return (
-    <>
+    <div>
       <Hero />
       <main className="main-content-grid">
         <DailyNotes />
         <FeaturedPoem />
         <Stories />
       </main>
-    </>
+    </div>
   );
 }
 

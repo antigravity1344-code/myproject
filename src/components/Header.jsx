@@ -1,15 +1,22 @@
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 
-export default function Header() {
+function Header() {
   return (
     <header className={styles.siteHeader}>
-      <div className={styles.headerBrand}>علی رضایی</div>
+      {/* کلیک روی نام علی رضایی هم کاربر را به صفحه اصلی برمی‌گرداند */}
+      <Link to="/" className={styles.headerBrand} style={{ textDecoration: 'none', color: 'inherit' }}>
+        علی رضایی
+      </Link>
+      
       <nav className={styles.headerNav}>
-        <a href="#poetry">شعر</a>
-        <a href="#stories">داستان‌ها</a>
-        <a href="#notes">یادداشت‌ها</a>
-        <a href="#contact">گفتگو</a>
+        <Link to="/poem">شعر</Link>
+        <Link to="/">داستان‌ها</Link> {/* هدایت مستقیم به صفحه اصلی */}
+        <Link to="/">یادداشت‌ها</Link> {/* هدایت مستقیم به صفحه اصلی */}
+        <Link to="/contact">گفتگو</Link>
       </nav>
     </header>
   );
 }
+
+export default Header;

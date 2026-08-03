@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './Stories.module.css';
-import storiesData from '../data/stories.json'; // وارد کردن داده‌های داستان‌ها از دیتابیسِ محلی
+import storiesData from '../data/stories.json';
 
 function Stories() {
   return (
