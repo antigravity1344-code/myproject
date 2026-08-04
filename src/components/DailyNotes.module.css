@@ -1,0 +1,60 @@
+.dailyNotesColumn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.columnTitle {
+  border-bottom: 2px solid #1a1a1a;
+  padding-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.notesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.noteItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid #dcdbd3;
+}
+
+.noteMarker {
+  color: #4a4a4a;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+.noteContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.noteLink {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.noteDate {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.2;
+}
