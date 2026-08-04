@@ -1,8 +1,11 @@
 .storiesColumn {
   width: 100%;
+<<<<<<< HEAD
   height: 100%;
   display: flex;
   flex-direction: column;
+=======
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
 }
 
 .columnTitle {
@@ -15,17 +18,28 @@
 .storiesList {
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   justify-content: space-between;
   flex-grow: 1;
+=======
+  gap: 15px;
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
 }
 
 .storyCard {
   display: flex;
+<<<<<<< HEAD
+=======
+  flex-direction: row-reverse;
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
   background-color: #f6f5f0;
   padding: 15px;
   border-radius: 4px;
   gap: 15px;
+<<<<<<< HEAD
   flex-direction: row-reverse;
+=======
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
 }
 
 .storyThumb {
@@ -39,11 +53,21 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+<<<<<<< HEAD
+=======
+  text-align: right;
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
 }
 
 .storyTitle {
   margin: 0;
   font-size: 16px;
+<<<<<<< HEAD
+=======
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: bold;
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
 }
 
 .storyDesc {

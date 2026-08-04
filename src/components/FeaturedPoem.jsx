@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Link } from 'react-router-dom'; // این خط برای معرفی Link الزامی است
 import styles from './FeaturedPoem.module.css';
 
@@ -8,6 +9,16 @@ const poemLines = [
 ];
 
 function FeaturedPoem() {
+=======
+import { Link } from 'react-router-dom';
+import styles from './FeaturedPoem.module.css';
+import serverData from '../data/poems.json'; // وارد کردن داده‌ها از فایلِ شبیه‌سازِ سرور
+
+function FeaturedPoem() {
+  // استخراج اطلاعات از دیتای دریافتیِ سرور
+  const poem = serverData.featuredPoem;
+
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
   return (
     <div className={styles.featuredPoemColumn}>
       <h3 className={styles.columnTitle}>شعر تصویری</h3>
@@ -15,6 +26,7 @@ function FeaturedPoem() {
       <Link to="/poem" style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%' }}>
         <div className={styles.poemCard}>
           <div className={styles.poemCoverContainer}>
+<<<<<<< HEAD
             <img src="https://picsum.photos/300/200" alt="رقص واژگان" className={styles.poemCoverImg} />
           </div>
           <div className={styles.poemTextContent}>
@@ -27,6 +39,21 @@ function FeaturedPoem() {
         </div>
       </Link>
       
+=======
+            <img src={poem.image} alt={poem.title} className={styles.poemCoverImg} />
+          </div>
+          <div className={styles.poemTextContent}>
+            <h4>{poem.title}</h4>
+            
+            {poem.lines.map((line, index) => (
+              <p key={index}>{line}</p>
+            ))}
+            
+            <span className={styles.poemAuthor}>{poem.author}</span>
+          </div>
+        </div>
+      </Link>
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
     </div>
   );
 }

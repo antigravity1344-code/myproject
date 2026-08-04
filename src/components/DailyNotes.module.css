@@ -1,8 +1,11 @@
 .dailyNotesColumn {
   width: 100%;
+<<<<<<< HEAD
   height: 100%;
   display: flex;
   flex-direction: column;
+=======
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
 }
 
 .columnTitle {
@@ -15,10 +18,13 @@
 .notesList {
   list-style: none;
   padding: 0;
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+=======
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
 }
 
 .noteItem {
@@ -28,10 +34,13 @@
   border-bottom: 1px solid #dcdbd3;
 }
 
+<<<<<<< HEAD
 .noteItem:last-child {
   border-bottom: none;
 }
 
+=======
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
 .noteArrow {
   margin-left: 10px;
   color: #4a4a4a;
@@ -47,6 +56,16 @@
   text-decoration: none;
   color: #1a1a1a;
   font-weight: bold;
+<<<<<<< HEAD
+=======
+  position: relative; /* آوردن لینک به لایه رویی */
+  z-index: 10;        /* فعال کردن کلیک‌پذیری */
+  cursor: pointer;
+}
+
+.noteLink:hover {
+  color: #8b7d6b;
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
 }
 
 .noteDate {

@@ -11,7 +11,11 @@ function DailyNotes() {
           <li key={note.id} className={styles.noteItem}>
             <span className={styles.noteArrow}>›</span>
             <div className={styles.noteContent}>
+<<<<<<< HEAD
               {/* روش استاندارد و حرفه‌ای با تگ Link */}
+=======
+              {/* لینک مستقیم با تگ Link به صفحه اختصاصی هر یادداشت */}
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
               <Link to={`/note/${note.id}`} className={styles.noteLink}>
                 {note.title}
               </Link>

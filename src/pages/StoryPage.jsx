@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useParams, Link } from 'react-router-dom';
 import storiesData from '../data/stories.json';
 
@@ -21,10 +22,20 @@ function StoryPage() {
   return (
     <div style={{ padding: '40px 0', maxWidth: '800px', margin: '0 auto' }}>
       {/* دکمه بازگشت */}
+=======
+import { useParams, Link } from 'react-router-dom'; // بررسی کنید که useParams حتماً اینجا باشد
+
+function StoryPage() {
+  const { id } = useParams();
+
+  return (
+    <div style={{ padding: '40px 0', maxWidth: '800px', margin: '0 auto' }}>
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
       <Link to="/" style={{ textDecoration: 'none', color: '#8b7d6b', fontWeight: 'bold' }}>
         ← بازگشت به صفحه اصلی
       </Link>
       
+<<<<<<< HEAD
       {/* کارت اصلی داستان */}
       <article style={{ marginTop: '30px', backgroundColor: '#f6f5f0', padding: '40px', borderRadius: '4px', border: '1px solid #dcdbd3' }}>
         {/* تصویر بزرگ داستان */}
@@ -52,6 +63,16 @@ function StoryPage() {
           </p>
         </div>
       </article>
+=======
+      <div style={{ marginTop: '30px', backgroundColor: '#f6f5f0', padding: '40px', borderRadius: '4px', border: '1px solid #dcdbd3' }}>
+        <h2 style={{ fontSize: '24px', marginBottom: '20px' }}>داستان شماره {id}</h2>
+        <p style={{ lineHeight: '1.8', color: '#4a4a4a', fontSize: '16px' }}>
+          این متنِ کامل و واقعی برای نمایشِ محتوای داستان است. 
+          شما با موفقیت توانستید از طریقِ لینکِ روی تصویرِ ستونِ وسط/چپ، به این صفحه هدایت شوید. 
+          ساختارِ مسیردهی (Routing) اکنون کاملاً پایدار و فعال است.
+        </p>
+      </div>
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
     </div>
   );
 }

@@ -5,6 +5,7 @@
   border: 2px dashed red; /* کادر قرمز آموزشی */
 }
 
+<<<<<<< HEAD
 html {
   scroll-behavior: smooth;
 }
@@ -13,6 +14,8 @@ section[id], footer[id] {
   scroll-margin-top: 90px;
 }
 
+=======
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
 /* طراحی شبکه سه‌ستونی بدنه اصلی */
 .main-content-grid {
   display: grid;

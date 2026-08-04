@@ -5,6 +5,7 @@ import Stories from '../components/Stories.jsx';
 
 function Home() {
   return (
+<<<<<<< HEAD
     <>
       <Hero />
       <main className="main-content-grid">
@@ -19,6 +20,16 @@ function Home() {
         </section>
       </main>
     </>
+=======
+    <div>
+      <Hero />
+      <main className="main-content-grid">
+        <DailyNotes />
+        <FeaturedPoem />
+        <Stories />
+      </main>
+    </div>
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
   );
 }
 
