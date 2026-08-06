@@ -1,28 +1,24 @@
 import { Link } from 'react-router-dom';
-
-const notesData = [
-  { id: 1, title: 'Art and Philosophy', date: '2024/10/13' },
-  { id: 2, title: 'Meeting Autumn', date: '2024/10/13' },
-  { id: 3, title: 'A Storm Rained', date: '2024/10/13' }
-];
+import { notesData } from '../data.js';
 
 function NotesPage() {
   return (
-    <div style={{ padding: '40px', maxWidth: '900px', margin: '0 auto' }}>
-      <Link to="/" style={{ color: '#8b7d6b', fontWeight: 'bold', textDecoration: 'none' }}>
-        بازگشت به صفحه اصلی ⟵
-      </Link>
+    <div className="page">
+      <Link to="/" className="back-link">← بازگشت به صفحه اصلی</Link>
 
-      <div style={{ marginTop: '30px' }}>
-        <h2 style={{ marginBottom: '24px' }}>همه یادداشت‌ها</h2>
+      <h1 className="page-title">همه یادداشت‌ها</h1>
+      <p className="page-lead">تصویر و متن هر یادداشت کنار هم نمایش داده می‌شود.</p>
+
+      <div className="card-stack">
         {notesData.map((note) => (
-          <div key={note.id} style={{ marginBottom: '20px', padding: '20px', background: '#f6f5f0', borderRadius: '8px' }}>
-            <h3>{note.title}</h3>
-            <p style={{ color: '#666' }}>{note.date}</p>
-            <Link to={`/note/${note.id}`} style={{ color: '#8b7d6b', fontWeight: 'bold' }}>
-              خواندن یادداشت
-            </Link>
-          </div>
+          <Link key={note.id} to={`/note/${note.id}`} className="media-card">
+            <img src={note.img} alt={note.title} className="media-thumb" />
+            <div className="media-body">
+              <h3 className="media-title">{note.title}</h3>
+              <p className="media-desc">{note.content}</p>
+              <span className="media-meta">{note.date}</span>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
@@ -30,3 +26,4 @@ function NotesPage() {
 }
 
 export default NotesPage;
+

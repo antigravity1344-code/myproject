@@ -85,3 +85,187 @@ section[id], footer[id] {
     border-radius: 0;
   }
 }
+
+/* ============================================================
+   Sub-pages: image + text side by side
+   ============================================================ */
+.page {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 24px 8px 40px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #8b7d6b;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  margin: 0 0 8px;
+  color: #1a1a1a;
+}
+
+.page-lead {
+  color: #777;
+  margin: 0 0 24px;
+}
+
+/* Horizontal cards (image on one side, text on the other) */
+.card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.media-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #f6f0f2;
+  border: 1px solid #e6dfd3;
+  border-radius: 16px;
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+a.media-card {
+  cursor: pointer;
+}
+
+a.media-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.07);
+}
+
+.media-thumb {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.media-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: right;
+}
+
+.media-title {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.media-desc {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+.media-meta {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* Detail page: image and text side by side */
+.detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 28px;
+  align-items: start;
+  background: #f6f5f0;
+  border: 1px solid #e6dfd3;
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.detail-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.detail-body {
+  text-align: right;
+  min-width: 0;
+}
+
+.detail-text {
+  margin: 14px 0 0;
+  line-height: 2;
+  color: #4a4a4a;
+  font-size: 0.98rem;
+}
+
+/* Poem page: image and text side by side */
+.poem-card-h {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 24px;
+  background: #f6f5f0;
+  border: 1px solid #e6dfd3;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.poem-card-h img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.poem-text-h {
+  padding: 28px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.poem-text-h h2 {
+  margin: 0 0 14px;
+  font-size: 1.4rem;
+}
+
+.poem-text-h p {
+  margin: 6px 0;
+  font-size: 1.05rem;
+  line-height: 2;
+  color: #4a4a4a;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 700px) {
+  .media-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .media-thumb {
+    width: 100%;
+    height: 200px;
+  }
+
+  .detail-grid,
+  .poem-card-h {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,20 +1,31 @@
 import { useParams, Link } from 'react-router-dom';
+import { notesData } from '../data.js';
 
 function NotePage() {
   const { id } = useParams();
+  const note = notesData.find((n) => String(n.id) === String(id));
 
   return (
-    <div style={{ padding: '40px', maxWidth: '800px', margin: '0 auto' }}>
-      <Link to="/" style={{ color: '#8b7d6b', fontWeight: 'bold' }}>
-        بازگشت به صفحه اصلی ⟵
-      </Link>
-      
-      <div style={{ marginTop: '30px', backgroundColor: '#f6f5f0', padding: '30px', borderRadius: '4px' }}>
-        <h2>یادداشت شماره {id}</h2>
-        <p style={{ marginTop: '20px', lineHeight: '1.8' }}>
-          این صفحه‌ی جزئیات یادداشت است و در آینده می‌توان متن کامل، حس آن روز و خاطرات مرتبط با آن را اینجا افزود.
-        </p>
-      </div>
+    <div className="page">
+      <Link to="/notes" className="back-link">← بازگشت به فهرست یادداشت‌ها</Link>
+
+      {!note ? (
+        <div className="detail-grid">
+          <div className="detail-body">
+            <h1 className="page-title">یادداشت یافت نشد</h1>
+            <p className="detail-text">یادداشتی با این شناسه وجود ندارد.</p>
+          </div>
+        </div>
+      ) : (
+        <article className="detail-grid">
+          <img src={note.img} alt={note.title} />
+          <div className="detail-body">
+            <h1 className="page-title">{note.title}</h1>
+            <span className="media-meta">{note.date}</span>
+            <p className="detail-text">{note.content}</p>
+          </div>
+        </article>
+      )}
     </div>
   );
 }

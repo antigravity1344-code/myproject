@@ -1,25 +1,35 @@
 import { useParams, Link } from 'react-router-dom';
+import { storiesData } from '../data.js';
 
 function StoryPage() {
   const { id } = useParams();
+  const story = storiesData.find((s) => String(s.id) === String(id));
 
   return (
-    <div style={{ padding: '40px 0', maxWidth: '800px', margin: '0 auto' }}>
-      {/* دکمه‌ی بازگشت به صفحه اصلی */}
-      <Link to="/" style={{ textDecoration: 'none', color: '#8b7d6b', fontWeight: 'bold' }}>
-        ← بازگشت به صفحه اصلی
-      </Link>
-      
-      <div style={{ marginTop: '30px', backgroundColor: '#f6f5f0', padding: '40px', borderRadius: '4px', border: '1px solid #dcdbd3' }}>
-        <h2 style={{ fontSize: '24px', marginBottom: '20px' }}>داستان شماره {id}</h2>
-        <p style={{ lineHeight: '1.8', color: '#4a4a4a', fontSize: '16px' }}>
-          این متنِ کامل و واقعی برای نمایشِ محتوای داستان است. 
-          شما با موفقیت توانستید از طریقِ لینکِ روی تصویرِ ستونِ وسط/چپ، به این صفحه هدایت شوید. 
-          ساختارِ مسیردهی (Routing) اکنون کاملاً پایدار و فعال است.
-        </p>
-      </div>
+    <div className="page">
+      <Link to="/stories" className="back-link">← بازگشت به فهرست داستان‌ها</Link>
+
+      {!story ? (
+        <div className="detail-grid">
+          <div className="detail-body">
+            <h1 className="page-title">داستان یافت نشد</h1>
+            <p className="detail-text">داستانی با این شناسه وجود ندارد.</p>
+          </div>
+        </div>
+      ) : (
+        <article className="detail-grid">
+          <img src={story.img} alt={story.title} />
+          <div className="detail-body">
+            <h1 className="page-title">{story.title}</h1>
+            <span className="media-meta">{story.date}</span>
+            <p className="media-desc" style={{ marginTop: '12px' }}>{story.desc}</p>
+            <p className="detail-text">{story.content}</p>
+          </div>
+        </article>
+      )}
     </div>
   );
 }
 
 export default StoryPage;
+

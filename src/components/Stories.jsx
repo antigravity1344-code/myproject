@@ -1,11 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './Stories.module.css';
-
-export const storiesData = [
-  { id: 1, title: 'Shadow in the Mirror', desc: '...', date: '2024/01/27', img: 'https://picsum.photos/80/80?random=1' },
-  { id: 2, title: 'Flight of Swallows', desc: '...', date: '2023/01/27', img: 'https://picsum.photos/80/80?random=2' },
-  { id: 3, title: 'The Sacrifice of Prince', desc: '...', date: '2022/01/27', img: 'https://picsum.photos/80/80?random=3' }
-];
+import { storiesData } from '../data.js';
 
 function Stories() {
   return (
