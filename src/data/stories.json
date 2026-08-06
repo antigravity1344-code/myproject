@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Shadow in the Mirror",
+    "desc": "Shadow in the mirror, door in the pan of Drunkards",
+    "date": "2024/01/27",
+<<<<<<< HEAD
+    "img": "https://picsum.photos/800/400?random=1"
+=======
+    "img": "https://picsum.photos/80/80?random=1"
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
+  },
+  {
+    "id": 2,
+    "title": "Flight of Swallows",
+    "desc": "A group of insane fugitives, flight of swallows",
+    "date": "2023/01/27",
+<<<<<<< HEAD
+    "img": "https://picsum.photos/800/400?random=2"
+=======
+    "img": "https://picsum.photos/80/80?random=2"
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
+  },
+  {
+    "id": 3,
+    "title": "The Sacrifice of Prince",
+    "desc": "Sorrow, afterwards the flight of the giant in winter",
+    "date": "2022/01/27",
+<<<<<<< HEAD
+    "img": "https://picsum.photos/800/400?random=3"
+=======
+    "img": "https://picsum.photos/80/80?random=3"
+>>>>>>> 3787a447ef849daa245dc1bef2fa11cd5498a64a
+  }
+]
