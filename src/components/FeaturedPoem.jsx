@@ -17,7 +17,7 @@ function FeaturedPoem() {
 
       <Link
         to={`/poem/${poem.id}`}
-        style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%' }}
+        className={styles.poemLink}
       >
         <div className={styles.poemCard}>
           <div className={styles.poemCoverContainer}>
