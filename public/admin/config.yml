@@ -1,4 +1,5 @@
 local_backend: true
+
 backend:
   name: git-gateway
   branch: main
@@ -7,39 +8,43 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
-  # ۱. بخش صفحات ثابت
-  - name: "pages"
-    label: "صفحات"
-    files:
-      - label: "صفحه اصلی"
-        name: "home"
-        file: "src/data/home.json"
-        fields:
-          - { label: "عنوان صفحه", name: "title", widget: "string" }
-
-  # ۲. بخش شعرها (امکان افزودن شعر جدید)
   - name: "poems"
     label: "شعرها"
     folder: "src/content/poems"
-    create: true # اجازه ساخت شعر جدید
+    create: true
     slug: "{{slug}}"
-    extension: "json"
-    format: "json"
+    extension: "md"
+    format: "frontmatter"
     fields:
-      - { label: "عنوان شعر", name: "title", widget: "string" }
+      - { label: "عنوان", name: "title", widget: "string" }
       - { label: "تاریخ", name: "date", widget: "datetime" }
+      - { label: "نام شاعر", name: "author", widget: "string", required: false }
+      - { label: "تصویر", name: "image", widget: "image", required: false }
       - { label: "متن شعر", name: "body", widget: "text" }
 
-  # ۳. بخش داستان‌ها (امکان افزودن داستان جدید)
   - name: "stories"
     label: "داستان‌ها"
     folder: "src/content/stories"
-    create: true # اجازه ساخت داستان جدید
+    create: true
     slug: "{{slug}}"
-    extension: "json"
-    format: "json"
+    extension: "md"
+    format: "frontmatter"
     fields:
-      - { label: "عنوان داستان", name: "title", widget: "string" }
+      - { label: "عنوان", name: "title", widget: "string" }
+      - { label: "خلاصه", name: "desc", widget: "string" }
       - { label: "تاریخ", name: "date", widget: "datetime" }
-      - { label: "خلاصه داستان", name: "summary", widget: "string", required: false }
-      - { label: "متن اصلی داستان", name: "body", widget: "markdown" }
+      - { label: "تصویر", name: "img", widget: "image", required: false }
+      - { label: "متن داستان", name: "body", widget: "markdown" }
+
+  - name: "notes"
+    label: "یادداشت‌ها"
+    folder: "src/content/notes"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "عنوان", name: "title", widget: "string" }
+      - { label: "تاریخ", name: "date", widget: "datetime" }
+      - { label: "تصویر", name: "img", widget: "image", required: false }
+      - { label: "متن یادداشت", name: "body", widget: "markdown" }

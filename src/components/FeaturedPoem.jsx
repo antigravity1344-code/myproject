@@ -1,32 +1,41 @@
-import { Link } from 'react-router-dom'; // این خط برای معرفی Link الزامی است
+import { Link } from 'react-router-dom';
 import styles from './FeaturedPoem.module.css';
-
-const poemLines = [
-  "هر واژه رقصان،",
-  "در باد زمان،",
-  "نغمه‌ای می‌خواند."
-];
+import { getContent } from '../utils/content';
 
 function FeaturedPoem() {
+  const poem = getContent('poems')[0];
+
+  if (!poem) {
+    return null;
+  }
+
+  const lines = String(poem.body || '').split('\n');
+
   return (
     <div className={styles.featuredPoemColumn}>
       <h3 className={styles.columnTitle}>شعر تصویری</h3>
-      
-      <Link to="/poem" style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%' }}>
+
+      <Link
+        to={`/poem/${poem.id}`}
+        style={{ textDecoration: 'none', color: 'inherit', display: 'block', width: '100%' }}
+      >
         <div className={styles.poemCard}>
           <div className={styles.poemCoverContainer}>
-            <img src="https://picsum.photos/300/200" alt="رقص واژگان" className={styles.poemCoverImg} />
+            <img
+              src={poem.image || 'https://picsum.photos/300/200'}
+              alt={poem.title}
+              className={styles.poemCoverImg}
+            />
           </div>
           <div className={styles.poemTextContent}>
-            <h4>رقص واژگان</h4>
-            {poemLines.map((line, index) => (
-              <p key={index}>{line}</p>
-            ))}
-            <span className={styles.poemAuthor}>علی رضایی</span>
+            <h4>{poem.title}</h4>
+            {lines.map((line, index) =>
+              line.trim() ? <p key={index}>{line}</p> : null,
+            )}
+            <span className={styles.poemAuthor}>{poem.author || 'علی رضایی'}</span>
           </div>
         </div>
       </Link>
-      
     </div>
   );
 }

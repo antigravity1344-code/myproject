@@ -1,15 +1,31 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
+
+const navItems = [
+  { to: '/poems', label: 'شعرها' },
+  { to: '/stories', label: 'داستان‌ها' },
+  { to: '/notes', label: 'یادداشت‌ها' },
+  { to: '/contact', label: 'گفتگو' },
+];
 
 export default function Header() {
   return (
     <header className={styles.siteHeader}>
-      <div className={styles.headerBrand}>علی رضایی</div>
+      <div className={styles.headerBrand}>
+        <NavLink to="/" end className={styles.brandLink}>
+          علی رضایی
+        </NavLink>
+      </div>
       <nav className={styles.headerNav}>
-        <Link to="/poem">شعر</Link>
-        <Link to="/stories">داستان‌ها</Link>
-        <Link to="/notes">یادداشت‌ها</Link>
-        <Link to="/contact">گفتگو</Link>
+        {navItems.map((item) => (
+          <NavLink
+            key={item.to}
+            to={item.to}
+            className={({ isActive }) => (isActive ? styles.active : undefined)}
+          >
+            {item.label}
+          </NavLink>
+        ))}
       </nav>
     </header>
   );

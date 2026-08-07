@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
-import { storiesData } from '../data.js';
+import { getContent } from '../utils/content';
 
 function StoriesPage() {
+  const storiesData = getContent('stories');
+
   return (
     <div className="page">
       <Link to="/" className="back-link">← بازگشت به صفحه اصلی</Link>

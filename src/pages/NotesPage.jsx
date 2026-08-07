@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
-import { notesData } from '../data.js';
+import { getContent } from '../utils/content';
 
 function NotesPage() {
+  const notesData = getContent('notes');
+
   return (
     <div className="page">
       <Link to="/" className="back-link">← بازگشت به صفحه اصلی</Link>

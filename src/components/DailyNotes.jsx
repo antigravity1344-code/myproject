@@ -1,11 +1,8 @@
 import { Link } from 'react-router-dom';
 import styles from './DailyNotes.module.css';
+import { getContent } from '../utils/content';
 
-const notesData = [
-  { id: 1, title: 'آرامشِ صبح', date: '۱۴۰۳/۰۷/۲۲' },
-  { id: 2, title: 'بارانِ عصر', date: '۱۴۰۳/۰۷/۲۱' },
-  { id: 3, title: 'سکوتِ شب', date: '۱۴۰۳/۰۷/۲۰' }
-];
+const notesData = getContent('notes');
 
 function DailyNotes() {
   return (

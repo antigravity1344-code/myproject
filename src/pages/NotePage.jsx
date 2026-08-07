@@ -1,9 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
-import { notesData } from '../data.js';
+import { getContent } from '../utils/content';
 
 function NotePage() {
   const { id } = useParams();
-  const note = notesData.find((n) => String(n.id) === String(id));
+  const note = getContent('notes').find((n) => String(n.id) === String(id));
 
   return (
     <div className="page">

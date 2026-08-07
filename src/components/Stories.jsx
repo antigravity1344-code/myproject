@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import styles from './Stories.module.css';
-import { storiesData } from '../data.js';
+import { getContent } from '../utils/content';
 
 function Stories() {
+  const storiesData = getContent('stories');
+
   return (
     <div className={styles.storiesColumn}>
       <h3 className={styles.columnTitle}>داستان‌ها با تصاویر</h3>

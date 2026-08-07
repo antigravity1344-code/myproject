@@ -19,6 +19,11 @@
   letter-spacing: 0.03em;
 }
 
+.brandLink {
+  text-decoration: none;
+  color: inherit;
+}
+
 .headerNav {
   display: flex;
   flex-wrap: wrap;
@@ -37,6 +42,12 @@
 .headerNav a:hover {
   background-color: #ebe5d8;
   transform: translateY(-1px);
+}
+
+.headerNav a.active {
+  background-color: #d8d0c2;
+  color: #1a1a1a;
+  font-weight: 700;
 }
 
 @media (max-width: 640px) {

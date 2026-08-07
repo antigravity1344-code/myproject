@@ -1,16 +1,49 @@
-# React + Vite
+# literary-portfolio — سایت شخصی و ادبی علی رضایی
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+سایت شخصی و ادبی ساخته‌شده با **React + Vite** شامل شعرها، داستان‌ها و یادداشت‌های روزانه، با مدیریت محتوا از طریق **Decap CMS**.
 
-Currently, two official plugins are available:
+## ✨ امکانات
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- صفحه اصلی با سه بخش: یادداشت‌های روزانه، شعر تصویری، داستان‌ها
+- صفحات مستقل برای شعرها، داستان‌ها و یادداشت‌ها با مسیرهای داینامیک (`/poems`، `/stories`، `/notes` و صفحه‌های جزئیات)
+- مدیریت محتوا با **Decap CMS** در مسیر `/admin`
+- طراحی راست‌به‌چپ (RTL) با فونت وزیرمتن
+- استقرار آماده روی **Netlify** (با `netlify.toml`)
 
-## React Compiler
+## 🗂 ساختار محتوا
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+محتوا به‌صورت فایل‌های Markdown با **frontmatter** در پوشه `src/content` نگهداری می‌شود:
 
-## Expanding the Oxlint configuration
+```
+src/content/
+├── poems/     # شعرها (نمونه: dance-of-words.md)
+├── stories/   # داستان‌ها
+└── notes/     # یادداشت‌های روزانه
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+هر فایل می‌تواند فیلدهایی مانند `title`، `date`، `author`/`desc`، `image`/`img` و بدنه‌ی اصلی داشته باشد. این فایل‌ها هم به‌صورت دستی و هم از پنل `/admin` قابل ویرایش‌اند.
+
+بارگذاری محتوا از طریق `src/utils/content.js` انجام می‌شود که فایل‌های Markdown را می‌خواند، frontmatter را تحلیل می‌کند و آنها را بر اساس تاریخ مرتب می‌کند.
+
+## 🚀 اجرای پروژه
+
+```bash
+npm install       # نصب وابستگی‌ها
+npm run dev       # اجرای سرور توسعه (پیش‌فرض روی پورت 5173)
+npm run build     # ساخت نسخه تولید
+npm run preview   # پیش‌نمایش نسخه تولید
+npm run lint      # بررسی کد با oxlint
+```
+
+## 📦 استقرار
+
+- **Netlify:** فایل `netlify.toml` تنظیمات build و ریدایرکت‌ها (ازجمله `/admin`) را مدیریت می‌کند.
+- برای استفاده از پنل مدیریت روی Netlify باید «Netlify Identity» و «Git Gateway» فعال باشد.
+
+## 🛠 تکنولوژی‌ها
+
+- React 19 + React Router 7
+- Vite 8
+- Decap CMS
+- oxlint
+

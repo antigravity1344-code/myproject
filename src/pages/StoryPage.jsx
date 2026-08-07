@@ -1,9 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
-import { storiesData } from '../data.js';
+import { getContent } from '../utils/content';
 
 function StoryPage() {
   const { id } = useParams();
-  const story = storiesData.find((s) => String(s.id) === String(id));
+  const story = getContent('stories').find((s) => String(s.id) === String(id));
 
   return (
     <div className="page">
