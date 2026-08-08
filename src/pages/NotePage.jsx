@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { getContent } from '../utils/content';
+import CopyDownload from '../components/CopyDownload.jsx';
 
 function NotePage() {
   const { id } = useParams();
@@ -23,6 +24,7 @@ function NotePage() {
             <h1 className="page-title">{note.title}</h1>
             <span className="media-meta">{note.date}</span>
             <p className="detail-text">{note.content}</p>
+            <CopyDownload title={note.title} text={`${note.title}\n\n${note.content}`} />
           </div>
         </article>
       )}

@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { getContent } from '../utils/content';
+import CopyDownload from '../components/CopyDownload.jsx';
 
 function PoemPage() {
   const { id } = useParams();
@@ -36,6 +37,11 @@ function PoemPage() {
           <span className="media-meta">{poem.date}</span>
         </div>
       </div>
+
+      <CopyDownload
+        title={poem.title}
+        text={`${poem.title}\n${poem.author || 'علی رضایی'}\n\n${poem.body}`}
+      />
     </div>
   );
 }

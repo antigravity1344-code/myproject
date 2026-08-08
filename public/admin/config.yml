@@ -1,9 +1,30 @@
+# ============================================================
+#  پیکربندی Decap CMS (مدیریت محتوا)
+#  این فایل هم در حالت محلی و هم در حالت آنلاین کار می‌کند:
+#
+#  • حالت محلی (localhost):
+#      local_backend: true  →  کافی است در ترمینال اجرا کنید:
+#                              `npx decap-server`
+#                              سپس به آدرس /admin بروید.
+#
+#  • حالت آنلاین (Netlify):
+#      backend از Git Gateway استفاده می‌کند و احراز هویت
+#      از طریق Netlify Identity انجام می‌شود. الزامات در دشبورد
+#      Netlify (Identity + Git Gateway فعال و گزینه‌ی Add users)
+#      باید برقرار باشد. اگر سرور محلی در دسترس نباشد، CMS
+#      به‌صورت خودکار از Git Gateway استفاده می‌کند.
+# ============================================================
+
+# فعال‌سازی بک‌اند محلی برای توسعه/تست در localhost
+# در حالت آنلاین تأثیری ندارد و به Git Gateway برمی‌گردد.
 local_backend: true
 
 backend:
   name: git-gateway
   branch: main
+  # اتصال آنلاین از طریق Netlify Identity / Git Gateway برقرار می‌شود
 
+# مسیر ذخیره‌ی فایل‌های آپلودشده (تصاویر)
 media_folder: "public/uploads"
 public_folder: "/uploads"
 

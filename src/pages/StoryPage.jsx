@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { getContent } from '../utils/content';
+import CopyDownload from '../components/CopyDownload.jsx';
 
 function StoryPage() {
   const { id } = useParams();
@@ -24,6 +25,10 @@ function StoryPage() {
             <span className="media-meta">{story.date}</span>
             <p className="media-desc" style={{ marginTop: '12px' }}>{story.desc}</p>
             <p className="detail-text">{story.content}</p>
+            <CopyDownload
+              title={story.title}
+              text={`${story.title}\n\n${story.desc || ''}\n\n${story.content}`}
+            />
           </div>
         </article>
       )}
