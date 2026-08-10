@@ -7,6 +7,9 @@
   padding: 20px;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  /* راست‌چین و تراز کردن کل ستون داستان‌ها */
+  direction: rtl;
+  text-align: right;
 }
 
 .columnTitle {
@@ -23,6 +26,9 @@
   flex-direction: column;
   gap: 12px;
   flex-grow: 1;
+  /* توزیع هم‌فاصله‌ی کارت‌ها در ارتفاع کشیده‌شده‌ی ستون
+     (هماهنگ با ستون یادداشت‌های روزانه) */
+  justify-content: space-between;
 }
 
 .storyCard {
@@ -39,7 +45,9 @@
 .storyDetails {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* تراز ابتدای (بالای) کارت؛ جلوگیری از جابه‌جایی داخلی متن
+     بسته به طول داستان — جایگزین justify-content: space-between */
+  justify-content: flex-start;
   min-width: 0;
 }
 
@@ -56,6 +64,10 @@
   font-size: 0.85rem;
   color: #666;
   line-height: 1.6;
+  /* تراز (justified) و راست‌چین کردن متن یادداشت کارت داستان */
+  text-align: justify;
+  text-align-last: right;
+  
 }
 
 .storyDate {

@@ -8,6 +8,9 @@
   padding: 20px;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  /* اطمینان از راست‌چین بودن کل ستون یادداشت‌های روزانه */
+  direction: rtl;
+  text-align: right;
 }
 
 .columnTitle {
@@ -16,6 +19,7 @@
   margin-top: 0;
   margin-bottom: 20px;
   font-size: 18px;
+  text-align: right;
 }
 
 .notesList {
@@ -34,6 +38,8 @@
   gap: 8px;
   padding: 12px 0;
   border-bottom: 1px solid #dcdbd3;
+  direction: rtl;
+  text-align: right;
 }
 
 .noteMarker {
@@ -41,12 +47,16 @@
   font-size: 16px;
   line-height: 1.5;
   font-weight: bold;
+  flex-shrink: 0;
 }
 
 .noteContent {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  direction: rtl;
+  text-align: right;
+  min-width: 0;
 }
 
 .noteLink {
@@ -55,10 +65,14 @@
   font-weight: bold;
   font-size: 15px;
   line-height: 1.5;
+  direction: rtl;
+  text-align: right;
 }
 
 .noteDate {
   font-size: 12px;
   color: #666;
   line-height: 1.2;
+  direction: rtl;
+  text-align: right;
 }

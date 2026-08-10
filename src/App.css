@@ -171,6 +171,9 @@ a.media-card:hover {
   font-size: 0.9rem;
   color: #666;
   line-height: 1.7;
+  /* راست‌چین و تراز (justified) کردن متن در کارت‌ها و صفحات داستان */
+  text-align: justify;
+  text-align-last: right;
 }
 
 .media-meta {
@@ -209,6 +212,9 @@ a.media-card:hover {
   line-height: 2;
   color: #4a4a4a;
   font-size: 0.98rem;
+  /* متن کامل داستان: راست‌چین و تراز (justified) */
+  text-align: justify;
+  text-align-last: right;
 }
 
 /* Poem page: image and text side by side */
