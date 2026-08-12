@@ -1,14 +1,44 @@
+import { useState } from 'react';
 import styles from './Hero.module.css';
 
+import hero1 from '../assets/hero-1.jpg';
+import hero2 from '../assets/hero-2.jpg';
+import hero3 from '../assets/hero-3.jpg';
+import hero4 from '../assets/hero-4.jpg';
+import hero5 from '../assets/hero-5.jpg';
+import hero6 from '../assets/hero-6.jpg';
+import hero7 from '../assets/hero-7.jpg';
+import hero8 from '../assets/hero-8.jpg';
+
+const heroImages = [
+  hero1,
+  hero2,
+  hero3,
+  hero4,
+  hero5,
+  hero6,
+  hero7,
+  hero8
+];
+
 function Hero() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const changeImage = () => {
+    setCurrentImage((prev) => (prev + 1) % heroImages.length);
+  };
+
   return (
     <section className={styles.heroBanner}>
-      {/* تصویر به بالا منتقل شد تا در سمت راست قرار بگیرد */}
       <div className={styles.heroImageContainer}>
-        <img src="https://picsum.photos/180/180" alt="علی رضایی" className={styles.heroProfileImg} />
+        <img
+          src={heroImages[currentImage]}
+          alt="علی رضایی"
+          className={styles.heroProfileImg}
+          onClick={changeImage}
+        />
       </div>
-      
-      {/* نوشته به پایین منتقل شد تا در سمت چپ قرار بگیرد */}
+
       <div className={styles.heroQuote}>
         <p>در این سکوت، کلماتم جوانه می‌زنند،</p>
         <p>همچون گل‌های یخ در زمستان.</p>
