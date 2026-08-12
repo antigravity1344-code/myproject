@@ -37,6 +37,10 @@ function Hero() {
           className={styles.heroProfileImg}
           onClick={changeImage}
         />
+
+        <span className={styles.imageHint}>
+          کلیک کنید؛ تصاویر دیگر را ببینید
+        </span>
       </div>
 
       <div className={styles.heroQuote}>
