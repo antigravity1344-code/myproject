@@ -22,6 +22,7 @@ function PoemPage() {
   }
 
   const lines = String(poem.body || '').split('\n');
+  const hasVideo = !!(poem.video && poem.video.trim());
 
   return (
     <div className="page">
@@ -32,12 +33,23 @@ function PoemPage() {
 
       <div className="poem-card-h">
         <div style={{ position: 'relative' }}>
-          <img src={poem.image || 'https://picsum.photos/500/500?random=13'} alt={poem.title} />
-          {poem.audio ? (
-            <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px' }}>
-              <AudioPlayer src={poem.audio} />
-            </div>
-          ) : null}
+          {hasVideo ? (
+            <video
+              src={poem.video}
+              controls
+              poster={poem.image || undefined}
+              style={{ width: '100%', display: 'block', borderRadius: '8px', background: '#000' }}
+            />
+          ) : (
+            <>
+              <img src={poem.image || 'https://picsum.photos/500/500?random=13'} alt={poem.title} />
+              {poem.audio ? (
+                <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px' }}>
+                  <AudioPlayer src={poem.audio} />
+                </div>
+              ) : null}
+            </>
+          )}
         </div>
         <div className="poem-text-h">
           <h2>{poem.title}</h2>
@@ -58,5 +70,3 @@ function PoemPage() {
 }
 
 export default PoemPage;
-
-
