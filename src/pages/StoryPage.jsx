@@ -2,6 +2,8 @@ import { useParams, Link } from 'react-router-dom';
 import { getContent } from '../utils/content';
 import CopyDownload from '../components/CopyDownload.jsx';
 import ReactMarkdown from 'react-markdown';
+import Comments from '../components/Comments.jsx';
+import { COMMENTS_ENABLED } from '../utils/featureFlags';
 
 function StoryPage() {
   const { id } = useParams();
@@ -69,6 +71,7 @@ function StoryPage() {
               title={story.title}
               text={`${story.title}\n\n${story.desc || ''}\n\n${story.body || story.content}`}
             />
+            {COMMENTS_ENABLED ? <Comments contentType="story" contentId={story.id} /> : null}
           </div>
         </article>
       )}

@@ -1,9 +1,11 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { getContent } from '../utils/content';
+import { supabase } from '../utils/supabaseClient';
+import { COMMENTS_ENABLED } from '../utils/featureFlags';
 
-function PoemCard({ poem }) {
+function PoemCard({ poem, commentCount }) {
   const [playing, setPlaying] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
   const audioRef = useRef(null);
@@ -108,7 +110,17 @@ function PoemCard({ poem }) {
       >
         <h3 className="media-title">{poem.title}</h3>
         <p className="media-desc" style={{ whiteSpace: 'pre-line' }}>{poem.body}</p>
-        <span className="media-meta">{poem.author || 'علی رضایی'} · {poem.date}</span>
+        <span className="media-meta">
+          {poem.author || 'علی رضایی'} · {poem.date}
+          {COMMENTS_ENABLED ? (
+            <>
+              {' · '}
+              <span style={{ fontSize: '0.95rem', fontWeight: 600, color: '#8a6d3b' }}>
+                💬 {commentCount > 0 ? `${commentCount} نظر` : 'ارسال نظر'}
+              </span>
+            </>
+          ) : null}
+        </span>
       </Link>
 
       {/* مودال ویدیو — روی body رندر می‌شه */}
@@ -174,6 +186,34 @@ function PoemCard({ poem }) {
 
 function PoemsPage() {
   const poems = getContent('poems');
+  const [commentCounts, setCommentCounts] = useState({});
+
+  useEffect(() => {
+    if (!COMMENTS_ENABLED) return;
+
+    let isCancelled = false;
+
+    async function loadCounts() {
+      const { data, error } = await supabase
+        .from('comments')
+        .select('content_id')
+        .eq('content_type', 'poem');
+
+      if (isCancelled || error || !data) return;
+
+      const counts = {};
+      data.forEach((row) => {
+        counts[row.content_id] = (counts[row.content_id] || 0) + 1;
+      });
+      setCommentCounts(counts);
+    }
+
+    loadCounts();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
 
   return (
     <div className="page">
@@ -185,7 +225,11 @@ function PoemsPage() {
       <div className="card-stack">
         {poems.length === 0 && <p className="page-lead">هنوز شعری ثبت نشده است.</p>}
         {poems.map((poem) => (
-          <PoemCard key={poem.id} poem={poem} />
+          <PoemCard
+            key={poem.id}
+            poem={poem}
+            commentCount={commentCounts[String(poem.id)] || 0}
+          />
         ))}
       </div>
     </div>
