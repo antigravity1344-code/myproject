@@ -1,13 +1,10 @@
-
-
-
-
 import { Link } from 'react-router-dom';
 import styles from './Stories.module.css';
 import { getContent } from '../utils/content';
 
 function Stories() {
-  const storiesData = getContent('stories');
+  // 🔴 برش اطلاعات: فقط ۳ داستان اول (جدیدترین‌ها) جدا می‌شوند
+  const storiesData = getContent('stories').slice(0, 3);
 
   return (
     <div className={styles.storiesColumn}>
@@ -16,6 +13,13 @@ function Stories() {
       <div className={styles.storiesList}>
         {storiesData.map((story) => (
           <div className={styles.storyCard} key={story.id}>
+            
+            {story.img && (
+              <div className={styles.imageWrapper}>
+                <img src={story.img} alt={story.title} className={styles.storyImage} />
+              </div>
+            )}
+
             <div className={styles.storyDetails}>
               <Link
                 to={`/story/${story.id}`}
@@ -31,6 +35,12 @@ function Stories() {
           </div>
         ))}
       </div>
+      
+      {/* 🔴 دکمه ارجاع به صفحه آرشیو کل داستان‌ها */}
+      <Link to="/stories" className={styles.viewAllButton}>
+        مشاهده همه داستان‌ها
+      </Link>
+      
     </div>
   );
 }

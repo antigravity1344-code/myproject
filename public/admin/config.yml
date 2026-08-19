@@ -1,30 +1,9 @@
-# ============================================================
-#  پیکربندی Decap CMS (مدیریت محتوا)
-#  این فایل هم در حالت محلی و هم در حالت آنلاین کار می‌کند:
-#
-#  • حالت محلی (localhost):
-#      local_backend: true  →  کافی است در ترمینال اجرا کنید:
-#                              `npx decap-server`
-#                              سپس به آدرس /admin بروید.
-#
-#  • حالت آنلاین (Netlify):
-#      backend از Git Gateway استفاده می‌کند و احراز هویت
-#      از طریق Netlify Identity انجام می‌شود. الزامات در دشبورد
-#      Netlify (Identity + Git Gateway فعال و گزینه‌ی Add users)
-#      باید برقرار باشد. اگر سرور محلی در دسترس نباشد، CMS
-#      به‌صورت خودکار از Git Gateway استفاده می‌کند.
-# ============================================================
-
-# فعال‌سازی بک‌اند محلی برای توسعه/تست در localhost
-# در حالت آنلاین تأثیری ندارد و به Git Gateway برمی‌گردد.
 local_backend: true
 
 backend:
   name: git-gateway
   branch: main
-  # اتصال آنلاین از طریق Netlify Identity / Git Gateway برقرار می‌شود
 
-# مسیر ذخیره‌ی فایل‌های آپلودشده (تصاویر)
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
@@ -41,6 +20,8 @@ collections:
       - { label: "تاریخ", name: "date", widget: "datetime" }
       - { label: "نام شاعر", name: "author", widget: "string", required: false }
       - { label: "تصویر", name: "image", widget: "image", required: false }
+      - { label: "فایل صوتی", name: "audio", widget: "file", required: false }
+      - { label: "فایل ویدیو", name: "video", widget: "file", required: false }
       - { label: "متن شعر", name: "body", widget: "text" }
 
   - name: "stories"
@@ -55,6 +36,8 @@ collections:
       - { label: "خلاصه", name: "desc", widget: "string" }
       - { label: "تاریخ", name: "date", widget: "datetime" }
       - { label: "تصویر", name: "img", widget: "image", required: false }
+      - { label: "فایل صوتی", name: "audio", widget: "file", required: false }
+      - { label: "لینک ویدیو (آپارات یا یوتیوب)", name: "videoUrl", widget: "string", required: false }
       - { label: "متن داستان", name: "body", widget: "markdown" }
 
   - name: "notes"
@@ -69,3 +52,17 @@ collections:
       - { label: "تاریخ", name: "date", widget: "datetime" }
       - { label: "تصویر", name: "img", widget: "image", required: false }
       - { label: "متن یادداشت", name: "body", widget: "markdown" }
+
+  - name: "hero"
+    label: "تصاویر هیرو"
+    folder: "src/content/hero"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "عنوان", name: "title", widget: "string" }
+      - { label: "تصویر", name: "image", widget: "image" }
+      - { label: "ترتیب نمایش", name: "order", widget: "number", default: 1, value_type: "int" }
+      - { label: "فعال", name: "active", widget: "boolean", default: true }
+      - { label: "شعر / متن کنار عکس", name: "quote", widget: "text", required: false }

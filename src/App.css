@@ -273,3 +273,112 @@ a.media-card:hover {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================
+   استایل‌های اختصاصی صفحه خواندن داستان
+========================================= */
+.story-cover-wrapper {
+  width: 100%;
+  margin-bottom: 30px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.story-cover-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.story-content-text {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  color: #2f2a24;
+}
+
+/* استایل دادن به پاراگراف‌های داخل داستان */
+/* استایل دادن به پاراگراف‌های داخل داستان */
+.story-content-text p {
+  font-size: 1.15rem;
+  line-height: 2.2;
+  margin-bottom: 24px;
+  text-align: justify; 
+  text-align-last: right;
+  /* 🔴 این دستور تورفتگی خط اول پاراگراف را ایجاد می‌کند */
+  text-indent: 40px; 
+}
+
+/* حرف اول داستان کمی بزرگ‌تر و جذاب‌تر می‌شود (اختیاری اما بسیار زیبا) */
+.story-content-text p:first-child::first-letter {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5a5148;
+  margin-left: 4px;
+}
+.story-container {
+  background: #f6f5f0;
+  border: 1px solid #e6dfd3;
+  border-radius: 18px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column; /* این دستور باعث می‌شود عکس و متن زیر هم قرار بگیرند */
+}
+/* =========================================
+   استایل‌های مربوط به مترجم متن (بولد، تیتر، لیست)
+========================================= */
+
+/* استایل کلمات پررنگ (Bold) */
+.story-content-text strong {
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+/* استایل کلمات مورب (Italic) */
+.story-content-text em {
+  font-style: italic;
+  color: #5a5148;
+}
+
+/* استایل تیترهای داخل متن داستان */
+.story-content-text h2, 
+.story-content-text h3 {
+  color: #2c3e50;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  text-indent: 0; /* تیترها نباید تورفتگی داشته باشند */
+}
+
+/* استایل لیست‌های نقطه‌ای و عددی */
+.story-content-text ul, 
+.story-content-text ol {
+  margin-bottom: 24px;
+  padding-right: 40px; /* راست‌چین کردن لیست‌ها */
+  line-height: 2;
+  font-size: 1.1rem;
+}
+
+.story-content-text li {
+  margin-bottom: 8px;
+}
+/* =========================================
+   استایل‌های پخش‌کننده ویدیو
+========================================= */
+.story-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* نسبت استاندارد 16:9 برای ویدیو */
+  margin: 30px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.story-video-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}

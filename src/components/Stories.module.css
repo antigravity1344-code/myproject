@@ -74,3 +74,48 @@
   font-size: 0.75rem;
   color: #888;
 }
+/* =========================================
+   استایل‌های جدید برای تصویر داستان‌ها
+========================================= */
+.imageWrapper {
+  /* این دستور باعث می‌شود عکس در کنار متن‌های طولانی فشرده و له نشود */
+  flex-shrink: 0; 
+}
+
+.storyImage {
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  object-fit: cover; /* عکس کادر را پر می‌کند بدون اینکه دفرمه شود */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border: 2px solid #fff;
+  transition: transform 0.3s ease;
+}
+
+/* افکت زوم ملایم: وقتی موس روی کل کارت داستان می‌رود */
+.storyCard:hover .storyImage {
+  transform: scale(1.05);
+}
+/* =========================================
+   استایل دکمه "مشاهده همه"
+========================================= */
+.viewAllButton {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #f6f5f0;
+  color: #5a5148;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border: 1px solid #e9e5d8;
+}
+
+.viewAllButton:hover {
+  background-color: #d9d3c4;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}

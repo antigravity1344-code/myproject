@@ -1,6 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
 import { getContent } from '../utils/content';
 import CopyDownload from '../components/CopyDownload.jsx';
+import Comments from '../components/Comments.jsx';
+import AudioPlayer from '../components/AudioPlayer.jsx';
+import { COMMENTS_ENABLED } from '../utils/featureFlags';
 
 function PoemPage() {
   const { id } = useParams();
@@ -28,7 +31,14 @@ function PoemPage() {
       <p className="page-lead">شعر {poem.author || 'علی رضایی'}</p>
 
       <div className="poem-card-h">
-        <img src={poem.image || 'https://picsum.photos/500/500?random=13'} alt={poem.title} />
+        <div style={{ position: 'relative' }}>
+          <img src={poem.image || 'https://picsum.photos/500/500?random=13'} alt={poem.title} />
+          {poem.audio ? (
+            <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px' }}>
+              <AudioPlayer src={poem.audio} />
+            </div>
+          ) : null}
+        </div>
         <div className="poem-text-h">
           <h2>{poem.title}</h2>
           {lines.map((line) => (
@@ -42,6 +52,7 @@ function PoemPage() {
         title={poem.title}
         text={`${poem.title}\n${poem.author || 'علی رضایی'}\n\n${poem.body}`}
       />
+      {COMMENTS_ENABLED ? <Comments contentType="poem" contentId={poem.id} /> : null}
     </div>
   );
 }

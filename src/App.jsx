@@ -11,7 +11,7 @@ import ContactPage from './pages/ContactPage.jsx';
 import PoemPage from './pages/PoemPage.jsx';
 import PoemsPage from './pages/PoemsPage.jsx';
 import './App.css';
-
+import AllStories from './pages/AllStories'; // آدرس پوشه را طبق سایت خودتان تنظیم کنید
 function App() {
   const location = useLocation();
 
@@ -38,8 +38,8 @@ function App() {
       <Header />
 
       <Routes>
+        <Route path="/stories" element={<AllStories />} />
         <Route path="/" element={<Home />} />
-        <Route path="/stories" element={<StoriesPage />} />
         <Route path="/notes" element={<NotesPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/story/:id" element={<StoryPage />} />

@@ -58,12 +58,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* تغییر یافته: خطوط را به شروع کادر (سمت راست) می‌فرستد */
   padding: 20px;
+  padding-right: 50px;
   box-sizing: border-box;
-  text-align: center;
+  text-align: right;       /* تغییر یافته: متن را راست‌چین می‌کند */
+  direction: rtl;          /* اضافه شده: جهت خواندن و چیدمان را برای زبان فارسی تنظیم می‌کند */
 }
-
 .poemTextContent h4 {
   margin: 0 0 10px 0;
   font-size: 1.1rem;
@@ -76,9 +77,33 @@
   color: #e8e3dc;
 }
 
-.poemAuthor {
-  display: block;
-  margin-top: 15px;
-  font-size: 0.85rem;
-  color: #d8d2c8;
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25);
+  transition: background 180ms ease;
+  border-radius: 14px;
+}
+
+.poemCard:hover .playOverlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.allPoemsLink {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2f2a24;
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid #d8d0c2;
+  transition: color 180ms ease;
+}
+
+.allPoemsLink:hover {
+  color: #666;
 }

@@ -16,21 +16,41 @@ function parseFrontmatter(raw) {
 
   const [, fm, body] = match;
   const data = {};
+  let currentKey = null;
 
   for (const line of fm.split(/\r?\n/)) {
+    // اگر خط با فاصله شروع شود، یعنی ادامه متن چندخطیِ قبلی (مثل شعر) است
+    if ((line.startsWith(' ') || line.startsWith('\t')) && currentKey) {
+      data[currentKey] += '\n' + line.trim();
+      continue;
+    }
+
     const idx = line.indexOf(':');
     if (idx === -1) continue;
 
     const key = line.slice(0, idx).trim();
     let value = line.slice(idx + 1).trim();
 
-    try {
-      value = JSON.parse(value);
-    } catch {
-      value = value.replace(/^["']|["']$/g, '');
+    // حذف علامت‌های متن چندخطی در سیستم CMS (مثل |- یا >)
+    if (['|', '|-', '>', '>-'].includes(value)) {
+      value = '';
+    } else {
+      try {
+        value = JSON.parse(value);
+      } catch {
+        value = value.replace(/^["']|["']$/g, '');
+      }
     }
 
     data[key] = value;
+    currentKey = key;
+  }
+
+  // تمیز کردن فاصله‌ها و اینترهای اضافه از ابتدا و انتهای متن‌ها
+  for (const key in data) {
+    if (typeof data[key] === 'string') {
+      data[key] = data[key].trim();
+    }
   }
 
   return { data, body: body.replace(/^[\r\n]+/, '').trim() };
