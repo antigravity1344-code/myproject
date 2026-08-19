@@ -8,18 +8,29 @@
   padding: 20px;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
-  /* اطمینان از راست‌چین بودن کل ستون یادداشت‌های روزانه */
   direction: rtl;
   text-align: right;
 }
 
-.columnTitle {
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   border-bottom: 2px solid #1a1a1a;
   padding-bottom: 10px;
-  margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+}
+
+.columnTitle {
+  margin: 0;
   font-size: 18px;
-  text-align: right;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.columnSubtitle {
+  font-size: 12px;
+  color: #888;
 }
 
 .notesList {
@@ -28,51 +39,197 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 12px;
   flex-grow: 1;
 }
 
-.noteItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  padding: 12px 0;
-  border-bottom: 1px solid #dcdbd3;
-  direction: rtl;
-  text-align: right;
-}
-
-.noteMarker {
-  color: #4a4a4a;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: bold;
-  flex-shrink: 0;
-}
-
-.noteContent {
+.cardItem {
+  background-color: #f7f5f0;
+  border: 1px solid #e8e4db;
+  border-radius: 12px;
+  padding: 12px 14px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  direction: rtl;
-  text-align: right;
-  min-width: 0;
+  justify-content: space-between;
+  transition: all 0.25s ease;
 }
 
-.noteLink {
+.cardItem:hover {
+  background-color: #eeeae0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.cardTopBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.tag {
+  background-color: #e5e0d3;
+  color: #4a4a4a;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.readTime {
+  font-size: 11px;
+  color: #888;
+}
+
+.cardMainLink {
   text-decoration: none;
-  color: #1a1a1a;
-  font-weight: bold;
+  color: inherit;
+  display: block;
+}
+
+.cardTitle {
+  margin: 0 0 6px 0;
   font-size: 15px;
-  line-height: 1.5;
-  direction: rtl;
-  text-align: right;
+  font-weight: bold;
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+
+.cardExcerpt {
+  margin: 0 0 10px 0;
+  font-size: 12.5px;
+  color: #555;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 1px solid #e5e0d3;
+  font-size: 11.5px;
 }
 
 .noteDate {
+  color: #777;
+}
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.commentBtn {
+  text-decoration: none;
+  color: #6a6458;
+  font-size: 11.5px;
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: 2px 7px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.commentBtn:hover {
+  background-color: #dfd8cb;
+  color: #1a1a1a;
+}
+
+.readMoreBtn {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #222;
+  font-weight: 600;
+}
+
+.arrowIcon {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.cardItem:hover .arrowIcon {
+  transform: translateX(-3px);
+}
+
+.bottomCtaWrapper {
+  margin-top: 16px;
+}
+
+.viewAllBtn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #f1ede4;
+  color: #222;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.viewAllBtn:hover {
+  background-color: #e2ddd2;
+}
+/* استایل‌های مربوط به باز شدن کادر نظر */
+.commentBtn {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.commentBoxArea {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #e5e0d3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.commentTextarea {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #dcd8cc;
+  border-radius: 8px;
+  padding: 8px 10px;
   font-size: 12px;
-  color: #666;
-  line-height: 1.2;
-  direction: rtl;
-  text-align: right;
+  font-family: inherit;
+  color: #333;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.commentTextarea:focus {
+  outline: none;
+  border-color: #b3ac9b;
+}
+
+.submitCommentBtn {
+  align-self: flex-end;
+  background-color: #2b2b2b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 11.5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.submitCommentBtn:hover {
+  background-color: #1a1a1a;
 }
