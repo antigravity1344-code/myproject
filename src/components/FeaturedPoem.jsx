@@ -130,6 +130,10 @@ function FeaturedPoem() {
               fontWeight: 600,
               color: '#fff',
               textDecoration: 'none',
+              background: 'rgba(255,255,255,0.15)',
+              border: '1px solid rgba(255,255,255,0.5)',
+              borderRadius: '999px',
+              padding: '4px 12px',
             }}
           >
             همه‌ی شعرها ←

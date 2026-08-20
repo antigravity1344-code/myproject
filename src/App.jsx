@@ -10,6 +10,7 @@ import NotePage from './pages/NotePage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import PoemPage from './pages/PoemPage.jsx';
 import PoemsPage from './pages/PoemsPage.jsx';
+import SubmitWork from './pages/SubmitWork.jsx';
 import './App.css';
 import AllStories from './pages/AllStories'; // آدرس پوشه را طبق سایت خودتان تنظیم کنید
 function App() {
@@ -46,6 +47,7 @@ function App() {
         <Route path="/note/:id" element={<NotePage />} />
         <Route path="/poems" element={<PoemsPage />} />
         <Route path="/poem/:id" element={<PoemPage />} />
+        <Route path="/submit" element={<SubmitWork />} />
       </Routes>
 
       <footer id="contact" className="site-footer">

@@ -4,11 +4,12 @@ import styles from './Comments.module.css';
 
 /**
  * بخش کامنت‌گذاری برای یک مطلب خاص.
- * @param {{ contentType: string, contentId: string }} props
+ * @param {{ contentType: string, contentId: string, onSubmitSuccess?: () => void }} props
  *   contentType: نوع محتوا، مثلاً 'story' یا 'poem' یا 'note'
  *   contentId: شناسه‌ی همون مطلب خاص
+ *   onSubmitSuccess: (اختیاری) بعد از ثبت موفق نظر صدا زده می‌شود — مثلاً برای بستن باکس
  */
-function Comments({ contentType, contentId }) {
+function Comments({ contentType, contentId, onSubmitSuccess }) {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState('');
@@ -77,6 +78,10 @@ function Comments({ contentType, contentId }) {
     setComments((prev) => [data, ...prev]);
     setName('');
     setBody('');
+
+    if (typeof onSubmitSuccess === 'function') {
+      onSubmitSuccess();
+    }
   }
 
   return (

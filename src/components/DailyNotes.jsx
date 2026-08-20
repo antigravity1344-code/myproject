@@ -82,7 +82,7 @@ function DailyNotes() {
                       className={styles.commentBtn}
                       onClick={() => setOpenCommentId(openCommentId === note.id ? null : note.id)}
                     >
-                      💬 {count > 0 ? `${count} نظر` : 'ارسال نظر'}
+                      💬 {count > 0 ? `${count} نظر · ارسال نظر` : 'ارسال نظر'}
                     </button>
                   ) : null}
 
@@ -95,8 +95,62 @@ function DailyNotes() {
 
               {/* نظردهی واقعی — همون کامپوننت متصل به Supabase */}
               {COMMENTS_ENABLED && openCommentId === note.id && (
-                <div className={styles.commentBoxArea}>
-                  <Comments contentType="note" contentId={note.id} />
+                <div
+                  className={styles.commentBoxArea}
+                  style={{ maxHeight: '340px', overflowY: 'auto', position: 'relative' }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenCommentId(null)}
+                    style={{
+                      position: 'absolute',
+                      top: '8px',
+                      left: '8px',
+                      zIndex: 2,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '4px',
+                      background: 'rgba(0,0,0,0.06)',
+                      border: 'none',
+                      borderRadius: '999px',
+                      padding: '4px 10px',
+                      fontFamily: 'inherit',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      lineHeight: 1,
+                      cursor: 'pointer',
+                      color: '#555',
+                    }}
+                  >
+                    بستن نظرات ✕
+                  </button>
+                  <Comments
+                    contentType="note"
+                    contentId={note.id}
+                    onSubmitSuccess={() => setOpenCommentId(null)}
+                  />
+
+                  {/* دکمه‌ی بستن در انتهای لیست — برای وقتی کاربر تا آخر نظرات اسکرول کرده */}
+                  <button
+                    type="button"
+                    onClick={() => setOpenCommentId(null)}
+                    style={{
+                      display: 'block',
+                      width: '100%',
+                      marginTop: '12px',
+                      padding: '8px',
+                      background: 'rgba(0,0,0,0.06)',
+                      border: 'none',
+                      borderRadius: '10px',
+                      fontFamily: 'inherit',
+                      fontSize: '0.85rem',
+                      fontWeight: 600,
+                      color: '#555',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    بستن نظرات ✕
+                  </button>
                 </div>
               )}
 
