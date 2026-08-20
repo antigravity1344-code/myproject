@@ -5,10 +5,13 @@ import styles from './FeaturedPoem.module.css';
 import { getContent } from '../utils/content';
 
 function FeaturedPoem() {
-  const poem = getContent('poems')[0];
+  const poems = getContent('poems');
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
   const audioRef = useRef(null);
+
+  const poem = poems[currentIndex];
 
   if (!poem) return null;
 
@@ -40,6 +43,13 @@ function FeaturedPoem() {
 
   function closeVideo() {
     setShowVideo(false);
+  }
+
+  function goToNextPoem(e) {
+    e.preventDefault();
+    setPlaying(false);
+    setShowVideo(false);
+    setCurrentIndex((prev) => (prev + 1) % poems.length);
   }
 
   return (
@@ -95,11 +105,59 @@ function FeaturedPoem() {
             onEnded={() => setPlaying(false)}
           />
         ) : null}
-      </div>
 
-      <Link to="/poems" className={styles.allPoemsLink}>
-        همه‌ی شعرها ←
-      </Link>
+        {/* دکمه‌های شناور روی تصویر — جای اضافه‌ای اشغال نمی‌کنند */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '8px 12px',
+            background: 'linear-gradient(0deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%)',
+            zIndex: 5,
+          }}
+        >
+          <Link
+            to="/poems"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: '#fff',
+              textDecoration: 'none',
+            }}
+          >
+            همه‌ی شعرها ←
+          </Link>
+
+          {poems.length > 1 ? (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                goToNextPoem(e);
+              }}
+              style={{
+                background: 'rgba(255,255,255,0.15)',
+                border: '1px solid rgba(255,255,255,0.5)',
+                borderRadius: '999px',
+                padding: '4px 12px',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                fontFamily: 'inherit',
+                color: '#fff',
+                cursor: 'pointer',
+              }}
+            >
+              شعر بعدی ←
+            </button>
+          ) : null}
+        </div>
+      </div>
 
       {/* مودال ویدیو — روی body رندر می‌شه تا هیچ مشکل z-index نداشته باشه */}
       {showVideo && hasVideo && createPortal(

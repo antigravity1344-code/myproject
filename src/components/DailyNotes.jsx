@@ -40,7 +40,7 @@ function DailyNotes() {
 
   return (
     <div className={styles.dailyNotesColumn}>
-      
+
       <div className={styles.headerWrapper}>
         <h3 className={styles.columnTitle}>یادداشت‌ها و خاطرات</h3>
         <span className={styles.columnSubtitle}>روایت‌ها و تأملات</span>
@@ -49,7 +49,7 @@ function DailyNotes() {
       <div className={styles.notesList}>
         {sectionsData.map((item) => (
           <article key={item.id} className={styles.cardItem}>
-            
+
             <div className={styles.cardTopBar}>
               <span className={styles.tag}>#{item.category}</span>
               <span className={styles.readTime}>{item.readTime}</span>
@@ -62,7 +62,7 @@ function DailyNotes() {
 
             <div className={styles.cardFooter}>
               <span className={styles.noteDate}>{item.date}</span>
-              
+
               <div className={styles.cardActions}>
                 <button 
                   className={styles.commentBtn}
@@ -70,7 +70,7 @@ function DailyNotes() {
                 >
                   💬 {item.commentsCount > 0 ? `${item.commentsCount} نظر` : 'ارسال نظر'}
                 </button>
-                
+
                 <Link to={item.link} className={styles.readMoreBtn}>
                   خواندن
                   <span className={styles.arrowIcon}>←</span>
