@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import styles from './FeaturedPoem.module.css';
 import { getContent } from '../utils/content';
+import { COMMENTS_ENABLED } from '../utils/featureFlags';
 
 function FeaturedPoem() {
   const poems = getContent('poems');
@@ -133,6 +134,25 @@ function FeaturedPoem() {
           >
             همه‌ی شعرها ←
           </Link>
+
+          {COMMENTS_ENABLED ? (
+            <Link
+              to={`/poem/${poem.id}`}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: '#fff',
+                textDecoration: 'none',
+                background: 'rgba(255,255,255,0.15)',
+                border: '1px solid rgba(255,255,255,0.5)',
+                borderRadius: '999px',
+                padding: '4px 12px',
+              }}
+            >
+              💬 نظرات
+            </Link>
+          ) : null}
 
           {poems.length > 1 ? (
             <button
