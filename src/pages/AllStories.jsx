@@ -4,8 +4,14 @@ import { Link } from 'react-router-dom';
 import styles from '../components/Stories.module.css'; 
 import { getContent } from '../utils/content';
 
+function excerptOf(text, maxLength = 90) {
+  const clean = String(text || '').replace(/\s+/g, ' ').trim();
+  if (clean.length <= maxLength) return clean;
+  return clean.slice(0, maxLength).trim() + '…';
+}
+
 function AllStories() {
-  // 🔴 اینجا کل داستان‌ها بدون بُرش (slice) فراخوانی می‌شوند
+  // کل داستان‌ها بدون بُرش (slice) فراخوانی می‌شوند
   const allStoriesData = getContent('stories');
 
   return (
@@ -26,8 +32,14 @@ function AllStories() {
               <Link to={`/story/${story.id}`} className={styles.storyTitle}>
                 {story.title}
               </Link>
-              <p className={styles.storyDesc}>{story.desc}</p>
-              <span className={styles.storyDate}>{story.date}</span>
+              <p className={styles.storyDesc}>{excerptOf(story.desc)}</p>
+              <span className={styles.storyDate}>
+                {story.date}
+                {' · '}
+                <span style={{ fontWeight: 600, color: '#8a6d3b' }}>
+                  ادامه مطلب و ارسال نظر ←
+                </span>
+              </span>
             </div>
             
           </div>

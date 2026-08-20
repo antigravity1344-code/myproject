@@ -1,6 +1,8 @@
 import { useParams, Link } from 'react-router-dom';
 import { getContent } from '../utils/content';
 import CopyDownload from '../components/CopyDownload.jsx';
+import Comments from '../components/Comments.jsx';
+import { COMMENTS_ENABLED } from '../utils/featureFlags';
 
 function NotePage() {
   const { id } = useParams();
@@ -25,6 +27,7 @@ function NotePage() {
             <span className="media-meta">{note.date}</span>
             <p className="detail-text">{note.content}</p>
             <CopyDownload title={note.title} text={`${note.title}\n\n${note.content}`} />
+            {COMMENTS_ENABLED ? <Comments contentType="note" contentId={note.id} /> : null}
           </div>
         </article>
       )}
