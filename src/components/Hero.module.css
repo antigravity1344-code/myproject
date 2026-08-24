@@ -12,25 +12,22 @@
 
 .heroQuote {
   flex: 1;
-  font-size: clamp(1.65rem, 2.8vw, 2.35rem);
-  line-height: 1.95;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  line-height: 2.2;
   font-weight: 500;
   text-align: right;
-  font-family: "Noto Serif Arabic", "Vazirmatn", Tahoma, serif;
-  background: linear-gradient(90deg, #3f2a1d 0%, #7a5135 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-family: "Noto Serif Arabic", "Vazirmatn", Georgia, serif;
   color: #4a3425;
-  text-shadow: 0 2px 8px rgba(74, 52, 37, 0.08);
-  transition: transform 0.4s ease, text-shadow 0.4s ease;
+  text-shadow: 0 2px 12px rgba(74, 52, 37, 0.14);
+  transition: transform 0.4s ease, text-shadow 0.4s ease, color 0.4s ease;
   padding: 0;
   min-width: 0;
 }
 
 .heroQuote:hover {
+  color: #38261a;
   transform: translateY(-2px);
-  text-shadow: 0 4px 12px rgba(74, 52, 37, 0.14);
+  text-shadow: 0 5px 16px rgba(74, 52, 37, 0.18);
 }
 
 .heroQuote p {
@@ -39,8 +36,15 @@
   letter-spacing: 0.015em;
 }
 
-.heroQuote p + p {
+.heroQuote p:first-child {
+  font-size: 1.05em;
+  font-weight: 600;
+}
+
+.heroQuote p:last-child {
   margin-top: 8px;
+  color: #6b4d35;
+  font-weight: 450;
 }
 
 .heroImageContainer {
@@ -93,5 +97,6 @@
   .heroQuote {
     text-align: center;
     padding: 0;
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
 }
