@@ -12,6 +12,7 @@ import PoemsPage from './pages/PoemsPage.jsx';
 import SubmitWork from './pages/SubmitWork.jsx';
 import FontTest from './pages/FontTest.jsx';
 import './App.css';
+import './styles/fonts.css';
 import AllStories from './pages/AllStories';
 function App() {
   const location = useLocation();
