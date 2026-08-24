@@ -2,7 +2,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px 24px 32px;
-  background: linear-gradient(180deg, #fcfbf7 0%, #f6f5f0 100%);
+  background: linear-gradient(180deg, #e6bf20 0%, #ecd4b0 100%);
   border-radius: 24px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
 }
@@ -42,7 +42,7 @@ section[id], footer[id] {
   justify-content: space-between;
   align-items: center;
   padding: 24px 6px 8px;
-  border-top: 1px solid #dcdbd3;
+  border-top: 1px solid #09c024;
   font-size: 13px;
   color: #666;
   gap: 12px;
@@ -381,4 +381,163 @@ a.media-card:hover {
   width: 100%;
   height: 100%;
   border: none;
+}
+/* =========================================
+   پالت رنگی گرم و صمیمی (قهوه‌ای / تراکوتا / کرم)
+   این بخش را در انتهای فایل App.css اضافه کنید
+========================================= */
+
+.app-container {
+  background: linear-gradient(180deg, #c69d4c 0%, #eddec0 100%);
+}
+
+/* عنوان‌ها: قهوه‌ای تیره و گرم به‌جای مشکی خالص */
+.page-title,
+.media-title,
+.poem-text-h h2 {
+  color: #3b2a1e;
+}
+
+/* متن‌های اصلی: قهوه‌ای-خاکستری گرم به‌جای خاکستری سرد */
+.page-lead,
+.media-desc,
+.detail-text,
+.poem-text-h p {
+  color: #6b5947;
+}
+
+/* متن‌های فرعی (تاریخ و...): بژ تیره به‌جای خاکستری روشن */
+.media-meta,
+.footer-copyright {
+  color: #796aa5;
+}
+
+/* کارت‌ها: زمینه‌ی کرم گرم‌تر با حاشیه‌ی تراکوتای ملایم */
+.media-card,
+.story-container,
+.detail-grid,
+.poem-card-h {
+  background: #e9fbe7;
+  border-color: #4510d6;
+}
+
+/* لینک بازگشت و لینک‌های اصلی: تراکوتا */
+.back-link {
+  color: #a8623a;
+}
+
+.back-link:hover {
+  color: #7d4526;
+}
+
+/* حرف اول داستان و برخی جزئیات تزئینی */
+.story-content-text p:first-child::first-letter {
+  color: #22aa39;
+}
+
+.story-content-text strong {
+  color: #3b1e20;
+}
+
+/* دکمه‌ها (ارسال نظر، ثبت اثر و...): تراکوتای گرم به‌جای قهوه‌ای تیره‌ی خنثی */
+.submitButton,
+button[type="submit"] {
+  background: #a8623a !important;
+}
+
+.footer-socials a:hover {
+  color: #a8623a;
+}
+/* =========================================
+   پالت رنگی گرم و صمیمی (قهوه‌ای / تراکوتا / کرم)
+   این بخش را در انتهای فایل App.css اضافه کنید
+========================================= */
+
+.app-container {
+  background: linear-gradient(180deg, #f3d497 0%, #f3ebdd 100%);
+}
+
+/* عنوان‌ها: قهوه‌ای تیره و گرم به‌جای مشکی خالص */
+.page-title,
+.media-title,
+.poem-text-h h2 {
+  color: #3b2a1e;
+}
+
+/* متن‌های اصلی: قهوه‌ای-خاکستری گرم به‌جای خاکستری سرد */
+.page-lead,
+.media-desc,
+.detail-text,
+.poem-text-h p {
+  color: #6b5947;
+}
+
+/* متن‌های فرعی (تاریخ و...): بژ تیره به‌جای خاکستری روشن */
+.media-meta,
+.footer-copyright {
+  color: #a5876a;
+}
+
+/* کارت‌ها: زمینه‌ی کرم گرم‌تر با حاشیه‌ی تراکوتای ملایم */
+.media-card,
+.story-container,
+.detail-grid,
+.poem-card-h {
+  background: #fbf3e7;
+  border-color: #e6d3b8;
+}
+
+/* لینک بازگشت و لینک‌های اصلی: تراکوتا */
+.back-link {
+  color: #a8623a;
+}
+
+.back-link:hover {
+  color: #7d4526;
+}
+
+/* حرف اول داستان و برخی جزئیات تزئینی */
+.story-content-text p:first-child::first-letter {
+  color: #a8623a;
+}
+
+.story-content-text strong {
+  color: #3b2a1e;
+}
+
+/* دکمه‌ها (ارسال نظر، ثبت اثر و...): تراکوتای گرم به‌جای قهوه‌ای تیره‌ی خنثی */
+.submitButton,
+button[type="submit"] {
+  background: #a8623a !important;
+}
+
+.footer-socials a:hover {
+  color: #a8623a;
+}
+/* =========================================
+   تیره‌تر کردن رنگ متن‌های اصلی برای خوانایی بهتر
+   (این بخش را در انتهای فایل App.css اضافه کنید،
+   بعد از بخش «پالت رنگی گرم و صمیمی»)
+========================================= */
+
+.page-lead,
+.media-desc,
+.detail-text,
+.poem-text-h p,
+.story-content-text p {
+  color: #3f2f22;
+}
+/* =========================================
+   افکت سایه‌ی پایین کارت هنگام هاور
+   (این بخش را در انتهای فایل App.css اضافه کنید)
+========================================= */
+
+.media-card {
+  position: relative;
+}
+
+a.media-card:hover {
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.10),
+    inset 0 -22px 26px -20px rgba(59, 42, 30, 0.35);
 }

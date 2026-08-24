@@ -4,7 +4,6 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Home from './pages/Home.jsx';
 import StoryPage from './pages/StoryPage.jsx';
-import StoriesPage from './pages/StoriesPage.jsx';
 import NotesPage from './pages/NotesPage.jsx';
 import NotePage from './pages/NotePage.jsx';
 import ContactPage from './pages/ContactPage.jsx';

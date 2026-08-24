@@ -33,13 +33,18 @@ function AllStories() {
                 {story.title}
               </Link>
               <p className={styles.storyDesc}>{excerptOf(story.desc)}</p>
-              <span className={styles.storyDate}>
-                {story.date}
-                {' · '}
-                <span style={{ fontWeight: 600, color: '#8a6d3b' }}>
-                  ادامه مطلب و ارسال نظر ←
-                </span>
-              </span>
+              <Link
+                to={`/story/${story.id}`}
+                style={{
+                  display: 'inline-block',
+                  marginTop: '4px',
+                  fontWeight: 600,
+                  color: '#a8623a',
+                  textDecoration: 'none',
+                }}
+              >
+                ادامه مطلب و ارسال نظر ←
+              </Link>
             </div>
             
           </div>

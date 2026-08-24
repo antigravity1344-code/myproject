@@ -44,18 +44,20 @@
 }
 
 .cardItem {
-  background-color: #f7f5f0;
-  border: 1px solid #e8e4db;
+  background-color: #e7eadf;
+  border: 5px solid #f3faf5;
   border-radius: 12px;
   padding: 12px 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.25s ease;
+ box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+ height: 180px;
 }
 
 .cardItem:hover {
-  background-color: #eeeae0;
+  background-color: #eee0e0;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
@@ -68,8 +70,9 @@
 }
 
 .tag {
-  background-color: #e5e0d3;
-  color: #4a4a4a;
+  background-color: #d7d3e5;
+  color: #fefefe;
+  text-shadow: 1px 1px 3px #1a1a1a;
   font-size: 11px;
   padding: 2px 8px;
   border-radius: 999px;
@@ -91,14 +94,14 @@
   margin: 0 0 6px 0;
   font-size: 15px;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #be19d0;
   line-height: 1.4;
 }
 
 .cardExcerpt {
   margin: 0 0 10px 0;
   font-size: 12.5px;
-  color: #555;
+  color: #6c11e2;
   line-height: 1.6;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -111,7 +114,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 8px;
-  border-top: 1px solid #e5e0d3;
+  border-top: 1px solid #b9a6ea;
   font-size: 11.5px;
 }
 
@@ -137,7 +140,7 @@
 }
 
 .commentBtn:hover {
-  background-color: #dfd8cb;
+  background-color: #bbf8af;
   color: #1a1a1a;
 }
 
@@ -146,7 +149,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  color: #222;
+  color: #984d4d;
   font-weight: 600;
 }
 
@@ -168,7 +171,7 @@
   width: 100%;
   box-sizing: border-box;
   text-align: center;
-  background-color: #f1ede4;
+  background-color: #f1e4e6;
   color: #222;
   text-decoration: none;
   font-size: 13px;
@@ -176,10 +179,12 @@
   padding: 10px;
   border-radius: 10px;
   transition: background-color 0.2s ease;
+  box-shadow: 1px 1px 20px #b3ac9b;
 }
 
 .viewAllBtn:hover {
-  background-color: #e2ddd2;
+  background-color: #d4f0d9;
+  box-shadow: 1px 2px 10px rgb(100, 94, 94);
 }
 /* استایل‌های مربوط به باز شدن کادر نظر */
 .commentBtn {
@@ -191,7 +196,7 @@
 .commentBoxArea {
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px dashed #e5e0d3;
+  border-top: 1px dashed #d6d1ea;
   display: flex;
   flex-direction: column;
   gap: 8px;

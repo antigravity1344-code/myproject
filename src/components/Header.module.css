@@ -5,11 +5,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(246, 245, 240, 0.95);
+  background: rgba(246, 243, 226, 0.95);
   padding: 15px 24px;
-  border: 1px solid #e5dfd1;
+  border:4px solid rgb(251, 252, 250);
   border-radius: 16px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: inherit(10px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
 }
 

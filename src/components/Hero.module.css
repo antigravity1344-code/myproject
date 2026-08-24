@@ -2,28 +2,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center; /* تراز عمودی کل بنر */
-  gap: 24px;
-  background: linear-gradient(135deg, #d9d3c4 0%, #c8bfae 100%);
+  gap: 40px;
+  background: linear-gradient(135deg, #c3ddce 0%, #debfd0 100%);
   padding: 32px 36px;
   margin-top: 20px;
   border-radius: 20px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .heroQuote {
   flex: 1;
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-size: clamp(2.1rem, 2vw, 1.4rem);
   line-height: 1.8;
   font-weight: 400;
   text-align: right;
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.12);
+  text-shadow: 1px 2px 4px rgba(123, 42, 42, 0.12);
   transition: all 0.4s ease-in-out;
   
   /* کادر شیشه‌ای و زیبا برای شعر */
   border-right: 4px solid #ada9ae; 
   padding: 1rem 1.5rem; 
   border-radius: 12px; 
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); 
+  box-shadow: 0 8px 20px rgba(221, 218, 218, 0.08); 
   color: #2c3e50;
 
   /* 🔴 قفل کردن کادر: حداقل ارتفاع و وسط‌چین کردن عمودی شعرها */

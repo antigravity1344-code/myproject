@@ -12,13 +12,32 @@ function excerptOf(text, maxLength = 110) {
   return clean.slice(0, maxLength).trim() + '…';
 }
 
+function formatDate(value) {
+  const raw = String(value || '');
+  // اگر تاریخ به‌صورت کامل ISO باشد (مثلاً 2026-08-14T09:43:00.000+03:30)
+  // فقط بخش تاریخ (YYYY-MM-DD) را نشان می‌دهیم
+  if (raw.includes('T')) {
+    return raw.split('T')[0];
+  }
+  return raw;
+}
+
+const CATEGORIES = ['خاطرات و روزنوشت', 'خلوت روح', 'دیده‌ها و شنیده‌ها'];
+
 function DailyNotes() {
   const [openCommentId, setOpenCommentId] = useState(null);
   const [commentCounts, setCommentCounts] = useState({});
+  const [hoveredId, setHoveredId] = useState(null);
 
-  // یادداشت‌های واقعی — سه مورد آخر
   const allNotes = getContent('notes');
-  const notes = allNotes.slice(0, 3);
+
+  // برای هر دسته، جدیدترین یادداشتِ همون دسته را انتخاب می‌کنیم
+  const notes = CATEGORIES
+    .map((catKey) => {
+      const match = allNotes.find((n) => n.category === catKey);
+      return match ? { ...match, categoryKey: catKey } : null;
+    })
+    .filter(Boolean);
 
   useEffect(() => {
     if (!COMMENTS_ENABLED) return;
@@ -57,7 +76,9 @@ function DailyNotes() {
 
       <div className={styles.notesList}>
         {notes.length === 0 && (
-          <p className={styles.columnSubtitle}>هنوز یادداشتی ثبت نشده است.</p>
+          <p className={styles.columnSubtitle}>
+            هنوز یادداشتی با دسته‌بندی ثبت نشده. از پنل مدیریت، دسته‌ی هر یادداشت را مشخص کنید.
+          </p>
         )}
 
         {notes.map((note) => {
@@ -65,15 +86,28 @@ function DailyNotes() {
           const noteLink = `/note/${note.id}`;
 
           return (
-            <article key={note.id} className={styles.cardItem}>
+            <article
+              key={note.id}
+              className={styles.cardItem}
+              onMouseEnter={() => setHoveredId(note.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              style={{
+                transition: 'box-shadow 220ms ease, transform 220ms ease',
+                boxShadow: hoveredId === note.id
+                  ? 'inset 0 -22px 26px -16px rgba(59, 42, 30, 0.35)'
+                  : undefined,
+                transform: hoveredId === note.id ? 'translateY(-3px)' : undefined,
+              }}
+            >
+              <span className={styles.tag}>#{note.categoryKey}</span>
 
               <Link to={noteLink} className={styles.cardMainLink}>
                 <h4 className={styles.cardTitle}>{note.title}</h4>
-                <p className={styles.cardExcerpt}>{excerptOf(note.content)}</p>
+                <p className={styles.cardExcerpt}>{excerptOf(note.content, 90)}</p>
               </Link>
 
               <div className={styles.cardFooter}>
-                <span className={styles.noteDate}>{note.date}</span>
+                <span className={styles.noteDate}>{formatDate(note.date)}</span>
 
                 <div className={styles.cardActions}>
                   {COMMENTS_ENABLED ? (
@@ -124,6 +158,7 @@ function DailyNotes() {
                   >
                     بستن نظرات ✕
                   </button>
+
                   <Comments
                     contentType="note"
                     contentId={note.id}

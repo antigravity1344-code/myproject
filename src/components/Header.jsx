@@ -14,7 +14,7 @@ export default function Header() {
     <header className={styles.siteHeader}>
       <div className={styles.headerBrand}>
         <NavLink to="/" end className={styles.brandLink}>
-          علی رضایی
+         محمد قنبری
         </NavLink>
       </div>
       <nav className={styles.headerNav}>

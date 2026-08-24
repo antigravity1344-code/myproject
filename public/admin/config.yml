@@ -50,6 +50,14 @@ collections:
     fields:
       - { label: "عنوان", name: "title", widget: "string" }
       - { label: "تاریخ", name: "date", widget: "datetime" }
+      - label: "دسته‌بندی"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "خاطرات و روزنوشت", value: "خاطرات و روزنوشت" }
+          - { label: "خلوت روح", value: "خلوت روح" }
+          - { label: "دیده‌ها و شنیده‌ها", value: "دیده‌ها و شنیده‌ها" }
+        default: "خاطرات و روزنوشت"
       - { label: "تصویر", name: "img", widget: "image", required: false }
       - { label: "متن یادداشت", name: "body", widget: "markdown" }
 

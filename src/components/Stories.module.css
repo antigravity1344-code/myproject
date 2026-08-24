@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: #f4f4f3;
   padding: 20px;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
@@ -13,32 +13,34 @@
 }
 
 .columnTitle {
-  border-bottom: 2px solid #1a1a1a;
+  border-bottom: 2px solid #2222e4;
   padding-bottom: 10px;
   margin-top: 0;
   margin-bottom: 18px;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .storiesList {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 15px;
   flex-grow: 1;
-  /* توزیع هم‌فاصله‌ی کارت‌ها در ارتفاع کشیده‌شده‌ی ستون
-     (هماهنگ با ستون یادداشت‌های روزانه) */
-  justify-content: space-between;
-}
-
+ }
 .storyCard {
   display: flex;
-  background-color: #f6f5f0;
+background-color: #e7eadf;
   padding: 14px;
+  height:200px;
+  overflow: hidden;
   border-radius: 14px;
   gap: 15px;
   flex-direction: row-reverse;
   align-items: center;
+  flex-shrink: 0;
+ box-shadow: 0 8px 20px rgba(59, 42, 30, 0.18);
+  border: 5px solid #f3faf5;
+  flex: 0 0 180px;
 }
 
 
@@ -53,16 +55,16 @@
 
 .storyTitle {
   margin: 0;
-  font-size: 0.95rem;
-  color: #1a1a1a;
+  font-size: 1rem;
+  color: #1d069e;
   text-decoration: none;
   font-weight: 700;
-}
+ }
 
 .storyDesc {
   margin: 5px 0;
   font-size: 0.85rem;
-  color: #666;
+  color: #0b037b;
   line-height: 1.6;
   /* تراز (justified) و راست‌چین کردن متن یادداشت کارت داستان */
   text-align: justify;
@@ -72,7 +74,7 @@
 
 .storyDate {
   font-size: 0.75rem;
-  color: #888;
+  color: #8e2222;
 }
 /* =========================================
    استایل‌های جدید برای تصویر داستان‌ها
@@ -84,12 +86,13 @@
 
 .storyImage {
   width: 90px;
-  height: 90px;
+  height: 140px;
   border-radius: 12px;
   object-fit: cover; /* عکس کادر را پر می‌کند بدون اینکه دفرمه شود */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  border: 2px solid #fff;
+  box-shadow: 2px 4px 10px rgba(71, 2, 2, 0.08);
+  border: 2px solid #f9f6f6 ;
   transition: transform 0.3s ease;
+  margin-bottom: -15px;
 }
 
 /* افکت زوم ملایم: وقتی موس روی کل کارت داستان می‌رود */
@@ -103,19 +106,21 @@
   display: block;
   text-align: center;
   margin-top: 20px;
-  padding: 12px;
-  background-color: #f6f5f0;
-  color: #5a5148;
-  border-radius: 12px;
+  padding: 10px;
+  background-color: #f1dcaf;
+  color: #2525e8;
+     text-shadow: #bb9dde 1px 5px 3px;
+      border-radius: 12px;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 700;
   transition: all 0.3s ease;
-  border: 1px solid #e9e5d8;
+  border: 1px solid #f5f8f6;
+  box-shadow: 0 8px 20px rgba(59, 42, 30, 0.18);
 }
 
 .viewAllButton:hover {
-  background-color: #d9d3c4;
-  color: #1a1a1a;
+  background-color: #c4d9c4;
+  color: #e8edea;
   transform: translateY(-2px);
 }
