@@ -1,0 +1,31 @@
+/* Persian font collection
+   Font files can be added later in: src/assets/fonts/
+*/
+
+@font-face {
+  font-family: "Nastaliq";
+  src: url("../assets/fonts/Nastaliq.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Shekasteh";
+  src: url("../assets/fonts/Shekasteh.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../assets/fonts/Vazirmatn.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Shabnam";
+  src: url("../assets/fonts/Shabnam.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
