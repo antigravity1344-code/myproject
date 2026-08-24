@@ -37,14 +37,14 @@
 }
 
 .heroQuote p:first-child {
-  font-size: 1.05em;
-  font-weight: 600;
+  font-size: 1.15em;
+  font-weight: 700;
 }
 
 .heroQuote p:last-child {
-  margin-top: 8px;
+  margin-top: 10px;
   color: #6b4d35;
-  font-weight: 450;
+  font-weight: 400;
 }
 
 .heroImageContainer {
