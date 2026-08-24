@@ -1,0 +1,44 @@
+
+.container {
+  padding: 30px;
+  direction: rtl;
+}
+
+.card {
+  background: #f6f5f0;
+  padding: 24px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.card p {
+  font-size: 2rem;
+  line-height: 2;
+  margin: 0;
+}
+
+.Nastaliq {
+  font-family: Nastaliq, serif;
+}
+
+.Shekasteh {
+  font-family: Shekasteh, serif;
+}
+
+.Dastkhat {
+  font-family: Dastkhat, serif;
+}
+
+.Vazirmatn {
+  font-family: Vazirmatn, sans-serif;
+}
+
+.Shabnam {
+  font-family: Shabnam, sans-serif;
+}
