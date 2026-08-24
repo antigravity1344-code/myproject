@@ -10,8 +10,9 @@ import ContactPage from './pages/ContactPage.jsx';
 import PoemPage from './pages/PoemPage.jsx';
 import PoemsPage from './pages/PoemsPage.jsx';
 import SubmitWork from './pages/SubmitWork.jsx';
+import FontTest from './pages/FontTest.jsx';
 import './App.css';
-import AllStories from './pages/AllStories'; // آدرس پوشه را طبق سایت خودتان تنظیم کنید
+import AllStories from './pages/AllStories';
 function App() {
   const location = useLocation();
 
@@ -47,6 +48,7 @@ function App() {
         <Route path="/poems" element={<PoemsPage />} />
         <Route path="/poem/:id" element={<PoemPage />} />
         <Route path="/submit" element={<SubmitWork />} />
+        <Route path="/font-test" element={<FontTest />} />
       </Routes>
 
       <footer id="contact" className="site-footer">
