@@ -20,7 +20,7 @@ function AllStories() {
 
       <div className={styles.storiesList}>
         {allStoriesData.map((story) => (
-          <div className={styles.storyCard} key={story.id}>
+          <div className={`${styles.storyCard} archive-story-row`} key={story.id}>
             
             {story.img && (
               <div className={styles.imageWrapper}>

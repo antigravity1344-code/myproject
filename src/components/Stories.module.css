@@ -7,7 +7,6 @@
   padding: 20px;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
-  /* راست‌چین و تراز کردن کل ستون داستان‌ها */
   direction: ltr;
   text-align: right;
 }
@@ -26,29 +25,35 @@
   flex-direction: column;
   gap: 15px;
   flex-grow: 1;
- }
+}
+
 .storyCard {
   display: flex;
-background-color: #e7eadf;
+  background-color: #e7eadf;
   padding: 14px;
-  height:200px;
-  overflow: hidden;
   border-radius: 14px;
   gap: 15px;
   flex-direction: row-reverse;
   align-items: center;
-  flex-shrink: 0;
- box-shadow: 0 8px 20px rgba(59, 42, 30, 0.18);
+  box-shadow: 0 8px 20px rgba(59, 42, 30, 0.18);
   border: 5px solid #f3faf5;
-  flex: 0 0 180px;
 }
 
+.storyCard:hover {
+  background-color: #d8e8d8;
+  transform: translateY(-3px);
+  box-shadow:
+    0 20px 30px -14px rgba(59, 42, 30, 0.35),
+    inset 0 -20px 24px -18px rgba(59, 42, 30, 0.30);
+}
+
+.storiesColumn .storyCard {
+  transition: box-shadow 220ms ease, transform 220ms ease, background-color 220ms ease;
+}
 
 .storyDetails {
   display: flex;
   flex-direction: column;
-  /* تراز ابتدای (بالای) کارت؛ جلوگیری از جابه‌جایی داخلی متن
-     بسته به طول داستان — جایگزین justify-content: space-between */
   justify-content: flex-start;
   min-width: 0;
 }
@@ -59,49 +64,48 @@ background-color: #e7eadf;
   color: #1d069e;
   text-decoration: none;
   font-weight: 700;
- }
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
 .storyDesc {
   margin: 5px 0;
   font-size: 0.85rem;
   color: #0b037b;
   line-height: 1.6;
-  /* تراز (justified) و راست‌چین کردن متن یادداشت کارت داستان */
   text-align: justify;
   text-align-last: right;
-  
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .storyDate {
   font-size: 0.75rem;
   color: #8e2222;
 }
-/* =========================================
-   استایل‌های جدید برای تصویر داستان‌ها
-========================================= */
+
 .imageWrapper {
-  /* این دستور باعث می‌شود عکس در کنار متن‌های طولانی فشرده و له نشود */
-  flex-shrink: 0; 
+  flex-shrink: 0;
 }
 
 .storyImage {
   width: 90px;
-  height: 140px;
+  height: 90px;
   border-radius: 12px;
-  object-fit: cover; /* عکس کادر را پر می‌کند بدون اینکه دفرمه شود */
+  object-fit: cover;
   box-shadow: 2px 4px 10px rgba(71, 2, 2, 0.08);
-  border: 2px solid #f9f6f6 ;
+  border: 2px solid #f9f6f6;
   transition: transform 0.3s ease;
-  margin-bottom: -15px;
 }
 
-/* افکت زوم ملایم: وقتی موس روی کل کارت داستان می‌رود */
 .storyCard:hover .storyImage {
   transform: scale(1.05);
 }
-/* =========================================
-   استایل دکمه "مشاهده همه"
-========================================= */
+
 .viewAllButton {
   display: block;
   text-align: center;
@@ -109,8 +113,8 @@ background-color: #e7eadf;
   padding: 10px;
   background-color: #f1dcaf;
   color: #2525e8;
-     text-shadow: #bb9dde 1px 5px 3px;
-      border-radius: 12px;
+  text-shadow: #bb9dde 1px 5px 3px;
+  border-radius: 12px;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 700;

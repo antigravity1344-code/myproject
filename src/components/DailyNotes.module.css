@@ -57,9 +57,9 @@
 }
 
 .cardItem:hover {
-  background-color: #eee0e0;
+  background-color: #f1bdbd;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: 1 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .cardTopBar {

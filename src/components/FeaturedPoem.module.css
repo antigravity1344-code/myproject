@@ -17,6 +17,7 @@
   margin-bottom: 18px;
   font-size: 1rem;
   font-weight: 700;
+ 
 }
 
 .poemLink {
@@ -34,7 +35,7 @@
   flex: 1 1 auto;
   overflow: hidden;
   border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 20 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .poemCoverContainer {

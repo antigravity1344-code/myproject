@@ -404,6 +404,7 @@ a.media-card:hover {
 .detail-text,
 .poem-text-h p {
   color: #6b5947;
+  font-family: "Noto Nastaliq Urdu", serif;
 }
 
 /* متن‌های فرعی (تاریخ و...): بژ تیره به‌جای خاکستری روشن */
@@ -427,7 +428,7 @@ a.media-card:hover {
 }
 
 .back-link:hover {
-  color: #7d4526;
+  color: Z#7d4526;
 }
 
 /* حرف اول داستان و برخی جزئیات تزئینی */
