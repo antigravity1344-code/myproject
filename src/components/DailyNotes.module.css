@@ -53,13 +53,15 @@
   justify-content: space-between;
   transition: all 0.25s ease;
  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
- height: 180px;
+  height: 15cap;
 }
 
 .cardItem:hover {
-  background-color: #f1bdbd;
-  transform: translateY(-2px);
-  box-shadow: 1 4px 12px rgba(0, 0, 0, 0.03);
+ background-color: #d8e8d8;
+  transform: translateY(-3px);
+  box-shadow:
+    0 20px 30px -14px rgba(59, 42, 30, 0.35),
+    inset 0 -20px 24px -18px rgba(59, 42, 30, 0.30);
 }
 
 .cardTopBar {

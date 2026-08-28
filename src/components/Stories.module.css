@@ -35,8 +35,9 @@
   gap: 15px;
   flex-direction: row-reverse;
   align-items: center;
-  box-shadow: 0 8px 20px rgba(59, 42, 30, 0.18);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
   border: 5px solid #f3faf5;
+  height: 15cap;
 }
 
 .storyCard:hover {
@@ -94,12 +95,13 @@
 
 .storyImage {
   width: 90px;
-  height: 90px;
+  height: 140px;
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 2px 4px 10px rgba(71, 2, 2, 0.08);
   border: 2px solid #f9f6f6;
   transition: transform 0.3s ease;
+  margin-top: 12px;
 }
 
 .storyCard:hover .storyImage {
